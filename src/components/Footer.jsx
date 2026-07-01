@@ -1,88 +1,87 @@
 import { Link } from 'react-router-dom';
 import { categories } from '../data/categories';
 import { contact } from '../data/contact';
-import './Footer.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer">
-      <div className="footer__top">
-        <div className="container footer__grid">
+    <footer className="bg-primary-dark text-white">
+      <div className="py-16 md:py-24">
+        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1.5fr] gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="footer__brand">
-            <div className="footer__logo">
-              <div className="footer__logo-icon">BP</div>
+          <div className="md:col-span-2 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-[44px] h-[44px] bg-accent rounded-md flex items-center justify-center font-heading font-extrabold text-[0.95rem] text-primary shrink-0">BP</div>
               <div>
-                <div className="footer__logo-name">Bhavia Plastic</div>
-                <div className="footer__logo-tagline">Nashik</div>
+                <div className="font-heading font-bold text-base text-white leading-tight">Bhavia Plastic</div>
+                <div className="text-[0.65rem] text-accent tracking-widest uppercase">Nashik</div>
               </div>
             </div>
-            <p className="footer__desc">
+            <p className="text-white/55 text-[0.87rem] leading-relaxed mb-6">
               Established in 2017, Bhavia Plastic is Nashik's trusted wholesale &amp; retail
               supplier of disposable products, packaging materials, and household essentials.
             </p>
-            <div className="footer__social">
-              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="footer__social-btn footer__social-btn--wa" aria-label="WhatsApp">💬</a>
-              <a href={`tel:${contact.phone}`} className="footer__social-btn footer__social-btn--call" aria-label="Call">📞</a>
+            <div className="flex gap-2">
+              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-md flex items-center justify-center text-[1.1rem] transition-all duration-150 opacity-80 hover:opacity-100 hover:-translate-y-[2px] bg-whatsapp" aria-label="WhatsApp">💬</a>
+              <a href={`tel:${contact.phone}`} className="w-10 h-10 rounded-md flex items-center justify-center text-[1.1rem] transition-all duration-150 opacity-80 hover:opacity-100 hover:-translate-y-[2px] bg-accent" aria-label="Call">📞</a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="footer__col">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/products">All Products</Link></li>
-              <li><Link to="/gallery">Gallery</Link></li>
-              <li><Link to="/faqs">FAQs</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
+          <div>
+            <h4 className="text-white text-[0.9rem] font-bold uppercase tracking-wider mb-6 pb-2 border-b-2 border-accent inline-block">Quick Links</h4>
+            <ul className="flex flex-col gap-2.5">
+              <li><Link to="/" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">Home</Link></li>
+              <li><Link to="/about" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">About Us</Link></li>
+              <li><Link to="/products" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">All Products</Link></li>
+              <li><Link to="/gallery" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">Gallery</Link></li>
+              <li><Link to="/faqs" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">FAQs</Link></li>
+              <li><Link to="/contact" className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">Contact Us</Link></li>
             </ul>
           </div>
 
           {/* Categories */}
-          <div className="footer__col">
-            <h4>Product Categories</h4>
-            <ul>
+          <div>
+            <h4 className="text-white text-[0.9rem] font-bold uppercase tracking-wider mb-6 pb-2 border-b-2 border-accent inline-block">Product Categories</h4>
+            <ul className="flex flex-col gap-2.5">
               {categories.map((cat) => (
                 <li key={cat.id}>
-                  <Link to={`/products/${cat.id}`}>{cat.icon} {cat.name}</Link>
+                  <Link to={`/products/${cat.id}`} className="text-white/55 text-[0.87rem] transition-colors duration-150 hover:text-accent flex items-center gap-1">{cat.icon} {cat.name}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Contact */}
-          <div className="footer__col">
-            <h4>Contact Us</h4>
-            <ul className="footer__contact-list">
-              <li>
-                <span className="footer__contact-icon">📍</span>
-                <span>{contact.address}</span>
+          <div>
+            <h4 className="text-white text-[0.9rem] font-bold uppercase tracking-wider mb-6 pb-2 border-b-2 border-accent inline-block">Contact Us</h4>
+            <ul className="flex flex-col gap-4">
+              <li className="flex gap-3 items-start">
+                <span className="text-base mt-0.5 shrink-0">📍</span>
+                <span className="text-white/55 text-[0.87rem] leading-normal">{contact.address}</span>
               </li>
-              <li>
-                <span className="footer__contact-icon">📞</span>
-                <div style={{ display: 'inline-flex', flexDirection: 'column', gap: '2px' }}>
+              <li className="flex gap-3 items-start">
+                <span className="text-base mt-0.5 shrink-0">📞</span>
+                <div className="inline-flex flex-col gap-[2px]">
                   {contact.phones.map((p, idx) => (
-                    <a key={idx} href={`tel:${p.value}`} style={{ display: 'block' }}>
+                    <a key={idx} href={`tel:${p.value}`} className="block text-white/55 text-[0.87rem] leading-normal transition-colors duration-150 hover:text-accent">
                       {p.display}
                     </a>
                   ))}
                 </div>
               </li>
-              <li>
-                <span className="footer__contact-icon">💬</span>
-                <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer">{contact.whatsappDisplay}</a>
+              <li className="flex gap-3 items-start">
+                <span className="text-base mt-0.5 shrink-0">💬</span>
+                <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="text-white/55 text-[0.87rem] leading-normal transition-colors duration-150 hover:text-accent">{contact.whatsappDisplay}</a>
               </li>
-              <li>
-                <span className="footer__contact-icon">✉️</span>
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
+              <li className="flex gap-3 items-start">
+                <span className="text-base mt-0.5 shrink-0">✉️</span>
+                <a href={`mailto:${contact.email}`} className="text-white/55 text-[0.87rem] leading-normal transition-colors duration-150 hover:text-accent">{contact.email}</a>
               </li>
-              <li>
-                <span className="footer__contact-icon">🕐</span>
-                <div>
+              <li className="flex gap-3 items-start">
+                <span className="text-base mt-0.5 shrink-0">🕐</span>
+                <div className="text-white/55 text-[0.87rem] leading-normal">
                   <div>{contact.hours.weekdays}</div>
                   <div>{contact.hours.sunday}</div>
                 </div>
@@ -92,8 +91,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="footer__bottom">
-        <div className="container footer__bottom-inner">
+      <div className="border-t border-white/8 py-6">
+        <div className="container flex flex-col md:flex-row items-center justify-between gap-4 flex-wrap text-[0.8rem] text-white/35 text-center md:text-left">
           <span>© {year} Bhavia Plastic, Nashik. All rights reserved.</span>
           <span>Wholesale &amp; Retail Disposable Products</span>
         </div>

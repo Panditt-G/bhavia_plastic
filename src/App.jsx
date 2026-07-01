@@ -16,9 +16,8 @@ function App() {
 
   return (
     <>
-      {/* Hide global navbar on home — mdhero has its own topbar */}
-      {!isHome && <Navbar />}
-      <main style={isHome ? { paddingTop: 0 } : {}}>
+      <Navbar />
+      <main className="flex-grow pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
