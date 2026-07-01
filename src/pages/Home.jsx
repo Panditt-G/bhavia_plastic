@@ -84,86 +84,69 @@ export default function Home() {
 
         {/* ── MAIN HERO BANNER ── */}
         <div
-          className="relative min-h-[420px] lg:min-h-[480px] bg-no-repeat flex flex-col justify-center py-12 px-6 md:px-0"
+          className="relative min-h-[360px] sm:min-h-[420px] lg:min-h-[480px] bg-no-repeat flex flex-col justify-center py-10 md:py-12 px-5 md:px-0"
           style={{
             backgroundImage: "url('https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/hero_bg.jpg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center 30%',
           }}
         >
-          {/* Subtle navy overlay for text readability — no heavy shadow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060e17]/80 via-[#0d1b2a]/50 to-transparent z-[1]" />
+          {/* Overlay — full cover on mobile for readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060e17]/90 via-[#0d1b2a]/70 to-[#0d1b2a]/40 md:to-transparent z-[1]" />
 
-          {/* Left – Text Content */}
-          <div className="container relative z-[3] text-left max-w-[1240px] mx-auto w-full flex flex-col">
-            <div className="max-w-2xl">
-              {/* Heading */}
-              <h1 className="text-white font-heading font-extrabold text-[2.6rem] md:text-[3.6rem] lg:text-[4.2rem] leading-[1.12] mb-3 tracking-tight">
+          {/* Text Content */}
+          <div className="container relative z-[3] w-full flex flex-col items-start">
+            <div className="w-full max-w-xl">
+              {/* Heading — smaller on mobile */}
+              <h1 className="text-white font-heading font-extrabold text-[1.9rem] sm:text-[2.6rem] md:text-[3.2rem] lg:text-[4rem] leading-[1.12] mb-3 tracking-tight">
                 Wholesale Shop<br />
                 Near You in<br />
                 <span className="text-[#E87C2B]">Nashik</span>
               </h1>
 
-              {/* Warm orange underline accent (matches new accent colour) */}
-              <div className="w-[70px] h-[4px] bg-[#E87C2B] rounded-full mb-6"></div>
+              {/* Accent underline */}
+              <div className="w-[56px] h-[3px] bg-[#E87C2B] rounded-full mb-4 md:mb-6"></div>
 
               {/* Subheading */}
-              <p className="text-white/90 text-base md:text-lg mb-8 font-sans font-medium tracking-wide">
+              <p className="text-white/85 text-sm md:text-base lg:text-lg mb-6 md:mb-8 font-sans font-medium tracking-wide">
                 All Products Under One Roof
               </p>
 
-              {/* Buttons — navy filled + white outline */}
-              <div className="flex gap-4 flex-wrap">
-                <a href={`tel:${contact.phone}`} className="inline-flex items-center gap-2 bg-[#0d1b2a] hover:bg-[#1e3a5f] text-white font-bold text-[0.92rem] px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-150 hover:-translate-y-[1px] border border-white/20">
+              {/* Buttons — stack on very small, row on sm+ */}
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <a
+                  href={`tel:${contact.phone}`}
+                  className="inline-flex items-center justify-center gap-2 bg-[#0d1b2a] hover:bg-[#1e3a5f] text-white font-bold text-[0.88rem] px-6 py-3 rounded-full border border-white/20 transition-all duration-150 hover:-translate-y-[1px]"
+                >
                   📞 Call Now
                 </a>
-                <Link to="/products" className="inline-flex items-center gap-2 border border-white/60 bg-transparent hover:bg-white/10 text-white font-bold text-[0.92rem] px-7 py-3.5 rounded-full shadow-md transition-all duration-150">
+                <Link
+                  to="/products"
+                  className="inline-flex items-center justify-center gap-2 border border-white/60 bg-transparent hover:bg-white/10 text-white font-bold text-[0.88rem] px-6 py-3 rounded-full transition-all duration-150"
+                >
                   🛍️ Explore Products
                 </Link>
               </div>
             </div>
 
-            {/* Bottom Features Row */}
-            <div className="mt-16 border-t border-white/10 pt-8 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white text-lg bg-white/8 shrink-0">
-                  📦
+            {/* Bottom Features Row — hidden on mobile, visible md+ */}
+            <div className="hidden md:grid mt-10 border-t border-white/10 pt-6 grid-cols-4 gap-4 max-w-3xl w-full">
+              {[
+                { icon: '📦', title: 'Wide Range', sub: 'of Products' },
+                { icon: '🛡️', title: 'Quality Assured', sub: 'Best for Business' },
+                { icon: '🚚', title: 'Fast Delivery', sub: 'On-time Service' },
+                { icon: '📞', title: 'Customer Support', sub: "We're Here to Help" },
+              ].map(({ icon, title, sub }) => (
+                <div key={title} className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-base bg-white/8 shrink-0">
+                    {icon}
+                  </div>
+                  <div className="flex flex-col leading-tight">
+                    <span className="text-white font-bold text-[10px] uppercase tracking-wide">{title}</span>
+                    <span className="text-white/55 text-[9px]">{sub}</span>
+                  </div>
                 </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-white font-bold text-[11px] uppercase tracking-wide">Wide Range</span>
-                  <span className="text-white/60 text-[10px]">of Products</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white text-lg bg-white/8 shrink-0">
-                  🛡️
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-white font-bold text-[11px] uppercase tracking-wide">Quality Assured</span>
-                  <span className="text-white/60 text-[10px]">Best for Business</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white text-lg bg-white/8 shrink-0">
-                  🚚
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-white font-bold text-[11px] uppercase tracking-wide">Fast Delivery</span>
-                  <span className="text-white/60 text-[10px]">On-time Service</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white text-lg bg-white/8 shrink-0">
-                  📞
-                </div>
-                <div className="flex flex-col leading-tight">
-                  <span className="text-white font-bold text-[11px] uppercase tracking-wide">Customer Support</span>
-                  <span className="text-white/60 text-[10px]">We're Here to Help</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
