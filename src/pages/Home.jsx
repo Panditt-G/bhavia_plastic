@@ -391,16 +391,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <a
-              href={`https://wa.me/${contact.whatsapp}`}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary"
-            >
-              💧 Order Water in Bulk
-            </a>
-          </div>
         </div>
       </section>
 
@@ -465,57 +455,53 @@ export default function Home() {
             <h3 className="font-heading font-bold text-primary text-xl mb-5">🧹 House Keeping Materials</h3>
             <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
               {[
-                { name: 'Broom\n& Dustpan',   cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Buckets',             cloudId: 'bhavia/cat_household' },
-                { name: 'Mops',                cloudId: 'bhavia/cat_household' },
-                { name: 'Microfiber\nCloths',  cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Scrubbers',           cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Toilet\nBrush',       cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Garbage\nBags',       cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Cleaning\nGloves',    cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Wiper /\nSqueegee',   cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Duster',              cloudId: 'bhavia/cat_cleaning' },
-                { name: 'Dustbin',             cloudId: 'bhavia/cat_household' },
-                { name: 'Cleaning\nBrushes',   cloudId: 'bhavia/cat_cleaning' },
-              ].map((item) => (
-                <div
-                  key={item.name}
-                  className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
-                >
-                  <img
-                    src={buildUrl(item.cloudId, { width: 160, height: 160, crop: 'fit' })}
-                    alt={item.name.replace('\n', ' ')}
-                    className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
-                    <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
-                      {item.name}
-                    </span>
-                    <a
-                      href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center"
-                    >
-                      Shop Now
-                    </a>
+                { name: 'Broom\n& Dustpan',   cloudId: 'bhavia/cat_cleaning', id: 'broom-dustpan' },
+                { name: 'Buckets',             cloudId: 'bhavia/cat_household', id: 'buckets' },
+                { name: 'Mops',                cloudId: 'bhavia/cat_household', id: 'mops' },
+                { name: 'Microfiber\nCloths',  cloudId: 'bhavia/cat_cleaning', id: 'cleaning-cloth' },
+                { name: 'Scrubbers',           cloudId: 'bhavia/cat_cleaning', id: 'steel-scrubber' },
+                { name: 'Toilet\nBrush',       cloudId: 'bhavia/cat_cleaning', id: 'toilet-brush' },
+                { name: 'Garbage\nBags',       cloudId: 'bhavia/cat_cleaning', id: 'garbage-bags' },
+                { name: 'Cleaning\nGloves',    cloudId: 'bhavia/cat_cleaning', id: 'cleaning-gloves' },
+                { name: 'Wiper /\nSqueegee',   cloudId: 'bhavia/cat_cleaning', id: 'wiper-squeegee' },
+                { name: 'Duster',              cloudId: 'bhavia/cat_cleaning', id: 'duster' },
+                { name: 'Dustbin',             cloudId: 'bhavia/cat_household', id: 'dustbin' },
+                { name: 'Cleaning\nBrushes',   cloudId: 'bhavia/cat_cleaning', id: 'cleaning-brushes' },
+              ].map((item) => {
+                const uniqueImg = `/images/products/${item.id}.png`;
+                const fallbackUrl = buildUrl(item.cloudId, { width: 160, height: 160, crop: 'fit' });
+                return (
+                  <div
+                    key={item.name}
+                    className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
+                  >
+                    <img
+                      src={uniqueImg}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = fallbackUrl;
+                      }}
+                      alt={item.name.replace('\n', ' ')}
+                      className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
+                      <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
+                        {item.name}
+                      </span>
+                      <a
+                        href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center"
+                      >
+                        Shop Now
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-10">
-            <a
-              href={`https://wa.me/917083012451`}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary"
-            >
-              🧴 Order Cleaning Supplies
-            </a>
           </div>
         </div>
       </section>
@@ -537,14 +523,19 @@ export default function Home() {
 
                 <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
                   {catProducts.map((p) => {
-                    const imgUrl = getProductMedia(p.id, p.cloudinaryId);
+                    const uniqueImg = `/images/products/${p.id}.png`;
+                    const fallbackUrl = buildUrl(p.cloudinaryId, { width: 200, height: 200, crop: 'fit' });
                     return (
                       <div
                         key={p.id}
                         className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
                       >
                         <img
-                          src={imgUrl}
+                          src={uniqueImg}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = fallbackUrl;
+                          }}
                           alt={p.name}
                           className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
@@ -565,17 +556,6 @@ export default function Home() {
                       </div>
                     );
                   })}
-                </div>
-
-                <div className="text-center mt-8">
-                  <a
-                    href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20products%20from%20${cat.name}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-primary"
-                  >
-                    💬 Order {cat.name} in Bulk
-                  </a>
                 </div>
               </div>
             </section>
