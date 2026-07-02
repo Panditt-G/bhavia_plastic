@@ -6,6 +6,119 @@ import { faqs } from '../data/faqs';
 import { contact } from '../data/contact';
 import CategoryCard from '../components/CategoryCard';
 import { useState } from 'react';
+import { products } from '../data/products';
+
+const productEmojis = {
+  // Cups & Glasses
+  'plastic-tea-glass': '🍵',
+  'water-glass': '🥛',
+  'paper-glass': '🥤',
+  'plastic-glass': '🍺',
+  'hot-beverage-cups': '☕',
+
+  // Plates
+  'paper-plates': '🍽️',
+  'thermocol-plates': '🍛',
+  'silver-plates': '🍛',
+  'areca-plates': '🍃',
+  'plastic-plates': '🍽️',
+
+  // Food Packaging
+  'thermocol-containers': '📦',
+  'food-containers': '🫙',
+  'plastic-containers': '🫙',
+  'paper-containers': '🥡',
+  'lunch-boxes': '🍱',
+  'silver-containers': '🍱',
+
+  // Paper Products
+  'paper-napkins': '🧻',
+  'kitchen-tissue': '🧻',
+  'butter-paper': '📝',
+  'foil-paper': '💿',
+  'paper-roll': '🧻',
+  'paper-bags': '🛍️',
+
+  // Cutlery
+  'plastic-spoon': '🥄',
+  'fork': '🍴',
+  'knife': '🔪',
+  'stirrers': '🥤',
+  'disposable-bowls': '🥣',
+
+  // Packaging Materials
+  'stretch-film': '🎁',
+  'plastic-rolls': '📜',
+  'tapes': '📼',
+  'wrapping-materials': '🎁',
+  'carry-bags': '🛍️',
+  'packaging-rolls': '📜',
+  'step-ladder': '🪜',
+
+  // Cleaning Supplies
+  'garbage-bags': '🗑️',
+  'cleaning-cloth': '🧼',
+  'kitchen-duster': '🧽',
+  'steel-scrubber': '🧼',
+  'room-freshener': '💨',
+  'phenyl': '🧴',
+  'fire-extinguisher': '🧯',
+
+  // Household
+  'candles': '🕯️',
+  'buckets': '🪣',
+  'storage-containers': '🫙',
+  'plastic-bowls': '🥣',
+  'ropes': '🪢',
+  'mops': '🧹',
+  'ortho-mattress': '🛏️',
+  'mineral-water': '💧',
+  'floor-mat': '🧼',
+  'door-mat': '🚪',
+  'garden-pots': '🪴',
+
+  // Festival
+  'modak-boxes': '🎁',
+  'disposable-serving-items': '🍽️',
+  'festival-packaging': '🎀',
+  'gift-packaging': '🎁',
+};
+
+const getProductMedia = (productId, cloudinaryId) => {
+  const localImages = {
+    // Water bottles
+    'water-independence': '/images/water/water_independence.png',
+    'water-bisleri': '/images/water/water_bisleri.png',
+    'water-kinley': '/images/water/water_kinley.png',
+    'water-clear': '/images/water/water_clear.png',
+    'water-renatures': '/images/water/water_renatures.png',
+    'water-bailley': '/images/water/water_bailley.png',
+
+    // Cleaning chemicals
+    'bathroom-cleaner': '/images/housekeeping/bathroom_cleaner.png',
+    'glass-cleaner': '/images/housekeeping/glass_cleaner.png',
+    'floor-cleaner': '/images/housekeeping/floor_cleaner.png',
+    'toilet-cleaner': '/images/housekeeping/toilet_cleaner.png',
+    'dishwash-liquid': '/images/housekeeping/dishwash_liquid.png',
+    'handwash': '/images/housekeeping/handwash.png',
+    'air-freshener': '/images/housekeeping/air_freshener.png',
+    'naphthalene-balls': '/images/housekeeping/naphthalene_balls.png',
+    'bleaching-powder': '/images/housekeeping/bleaching_powder.png',
+    'room-spray': '/images/housekeeping/room_spray.png',
+    'flushmatic': '/images/housekeeping/flushmatic.png',
+  };
+
+  if (localImages[productId]) {
+    return localImages[productId];
+  }
+
+  if (cloudinaryId) {
+    return buildUrl(cloudinaryId, { width: 200, height: 200, crop: 'fit' });
+  }
+
+  return '/images/placeholder.png';
+};
+
 
 const whyUs = [
   { icon: '💰', title: 'Wholesale Pricing', desc: 'Best market rates for bulk buyers, businesses, and caterers.' },
@@ -236,24 +349,239 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── WHY CHOOSE US ── */}
-      <section className="section section-alt">
+      {/* ── PACKAGED DRINKING WATER SUPPLY ── */}
+      <section className="section">
         <div className="container">
           <div className="section-header center">
-            <div className="section-label">Why Choose Us</div>
-            <h2>The Bhavia Plastic Advantage</h2>
+            <h2>Packaged Drinking Water Supply</h2>
+            <p>Bulk supply of packaged drinking water for offices, events, and commercial use.</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyUs.map((w) => (
-              <div key={w.title} className="bg-bg-card rounded-xl p-6 border border-border hover:shadow-md transition-shadow duration-200 text-center flex flex-col items-center gap-2.5">
-                <div className="text-3xl">{w.icon}</div>
-                <h4 className="font-heading font-bold text-primary text-sm uppercase tracking-wider">{w.title}</h4>
-                <p className="text-[0.8rem] text-muted leading-relaxed">{w.desc}</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+            {[
+              { name: 'Independence', img: '/images/water/water_independence.png' },
+              { name: 'Bisleri',       img: '/images/water/water_bisleri.png' },
+              { name: 'Kinley',        img: '/images/water/water_kinley.png' },
+              { name: 'Clear',         img: '/images/water/water_clear.png' },
+              { name: 'ReNatures',     img: '/images/water/water_renatures.png' },
+              { name: 'Bailley',       img: '/images/water/water_bailley.png' },
+            ].map((w) => (
+              <div
+                key={w.name}
+                className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-3 p-5 cursor-pointer z-10 hover:z-20 relative overflow-hidden"
+              >
+                <img
+                  src={w.img}
+                  alt={w.name}
+                  className="h-[140px] w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="relative w-full h-[36px] flex items-center justify-center overflow-hidden">
+                  <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-heading font-semibold text-[0.9rem] text-primary text-center leading-tight">
+                    {w.name}
+                  </span>
+                  <a
+                    href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${w.name}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.75rem] font-bold py-1.5 px-4.5 rounded-full shadow-sm text-center"
+                  >
+                    Shop Now
+                  </a>
+                </div>
               </div>
             ))}
           </div>
+          <div className="text-center mt-10">
+            <a
+              href={`https://wa.me/${contact.whatsapp}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary"
+            >
+              💧 Order Water in Bulk
+            </a>
+          </div>
         </div>
       </section>
+
+
+
+      {/* ── HOUSEKEEPING & CLEANING SOLUTIONS ── */}
+      <section className="section section-alt">
+        <div className="container">
+          {/* Section Header */}
+          <div className="section-header center">
+            <h2>Housekeeping &amp; Cleaning Solutions</h2>
+            <p>Complete cleaning solutions including chemicals and materials for all types of spaces.</p>
+          </div>
+
+          {/* ── House Keeping Chemicals ── */}
+          <div className="mb-10">
+            <h3 className="font-heading font-bold text-primary text-xl mb-5">🧴 House Keeping Chemicals</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+              {[
+                { name: 'Bathroom\nCleaners',   img: '/images/housekeeping/bathroom_cleaner.png' },
+                { name: 'Glass\nCleaners',       img: '/images/housekeeping/glass_cleaner.png' },
+                { name: 'Floor\nCleaners',       img: '/images/housekeeping/floor_cleaner.png' },
+                { name: 'Toilet\nCleaners',      img: '/images/housekeeping/toilet_cleaner.png' },
+                { name: 'Dishwashing\nLiquids',  img: '/images/housekeeping/dishwash_liquid.png' },
+                { name: 'Hand\nWashing Liquids', img: '/images/housekeeping/handwash.png' },
+                { name: 'Air\nFresheners',       img: '/images/housekeeping/air_freshener.png' },
+                { name: 'Naphthalene\nBalls',    img: '/images/housekeeping/naphthalene_balls.png' },
+                { name: 'Bleaching\nPowder',     img: '/images/housekeeping/bleaching_powder.png' },
+                { name: 'Room\nSprays',          img: '/images/housekeeping/room_spray.png' },
+                { name: 'Flushmatic',            img: '/images/housekeeping/flushmatic.png' },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
+                >
+                  <img
+                    src={item.img}
+                    alt={item.name.replace('\n', ' ')}
+                    className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
+                    <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
+                      {item.name}
+                    </span>
+                    <a
+                      href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center"
+                    >
+                      Shop Now
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── House Keeping Materials ── */}
+          <div>
+            <h3 className="font-heading font-bold text-primary text-xl mb-5">🧹 House Keeping Materials</h3>
+            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+              {[
+                { name: 'Broom\n& Dustpan',   cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Buckets',             cloudId: 'bhavia/cat_household' },
+                { name: 'Mops',                cloudId: 'bhavia/cat_household' },
+                { name: 'Microfiber\nCloths',  cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Scrubbers',           cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Toilet\nBrush',       cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Garbage\nBags',       cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Cleaning\nGloves',    cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Wiper /\nSqueegee',   cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Duster',              cloudId: 'bhavia/cat_cleaning' },
+                { name: 'Dustbin',             cloudId: 'bhavia/cat_household' },
+                { name: 'Cleaning\nBrushes',   cloudId: 'bhavia/cat_cleaning' },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
+                >
+                  <img
+                    src={buildUrl(item.cloudId, { width: 160, height: 160, crop: 'fit' })}
+                    alt={item.name.replace('\n', ' ')}
+                    className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
+                    <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
+                      {item.name}
+                    </span>
+                    <a
+                      href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center"
+                    >
+                      Shop Now
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-10">
+            <a
+              href={`https://wa.me/917083012451`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-primary"
+            >
+              🧴 Order Cleaning Supplies
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── DYNAMIC CATEGORY PRODUCTS SECTIONS ── */}
+      {categories
+        .filter((cat) => cat.id !== 'cleaning-supplies' && cat.id !== 'household')
+        .map((cat, idx) => {
+          const catProducts = products.filter((p) => p.category === cat.id);
+          if (catProducts.length === 0) return null;
+
+          return (
+            <section key={cat.id} className={`section ${idx % 2 === 0 ? '' : 'section-alt'}`}>
+              <div className="container">
+                <div className="section-header center">
+                  <h2>{cat.name}</h2>
+                  <p>{cat.description}</p>
+                </div>
+
+                <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+                  {catProducts.map((p) => {
+                    const imgUrl = getProductMedia(p.id, p.cloudinaryId);
+                    return (
+                      <div
+                        key={p.id}
+                        className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
+                      >
+                        <img
+                          src={imgUrl}
+                          alt={p.name}
+                          className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
+                          <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.72rem] text-primary text-center leading-tight">
+                            {p.name}
+                          </span>
+                          <a
+                            href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${p.name}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center"
+                          >
+                            Shop Now
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="text-center mt-8">
+                  <a
+                    href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20products%20from%20${cat.name}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-primary"
+                  >
+                    💬 Order {cat.name} in Bulk
+                  </a>
+                </div>
+              </div>
+            </section>
+          );
+        })}
+
 
       {/* ── BRANDS ── */}
       <section className="section">

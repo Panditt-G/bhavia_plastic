@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,12 +12,12 @@
     @apply min-h-screen flex flex-col;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-primary leading-tight;
+    @apply font-heading text-primary leading-tight;
   }
-  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
-  h2 { @apply text-3xl md:text-4xl lg:text-5xl; }
-  h3 { @apply text-xl md:text-2xl; }
-  h4 { @apply text-lg; }
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-extrabold; }
+  h2 { @apply text-[34px] font-bold; }
+  h3 { @apply text-xl md:text-2xl font-bold; }
+  h4 { @apply text-lg font-bold; }
   p { @apply text-muted leading-relaxed; }
 }
 
@@ -116,4 +116,13 @@
 /* Text Selection */
 ::selection {
   @apply bg-accent-light text-primary;
+}
+
+/* Scrollbar Hide utility — for horizontal sliders */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;             /* Chrome / Safari */
 }
