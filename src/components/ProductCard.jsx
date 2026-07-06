@@ -27,13 +27,13 @@ export default function ProductCard({ product }) {
             rel="noreferrer"
             className="btn btn-whatsapp btn-sm flex-1"
           >
-            💬 Inquire
+            Inquire
           </a>
           <a
             href={`tel:${contact.phone}`}
             className="btn btn-outline-dark btn-sm flex-1"
           >
-            📞 Call
+            Call
           </a>
         </div>
       </div>

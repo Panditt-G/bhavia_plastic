@@ -50,7 +50,9 @@ export default function Products() {
           {/* Search Bar */}
           <form className="flex flex-col sm:flex-row gap-4 mb-12" onSubmit={handleSearch}>
             <div className="flex-1 flex gap-3 items-center bg-bg-card border border-border rounded-xl px-5 py-4 shadow-sm relative">
-              <span className="text-lg">🔍</span>
+              <svg className="w-5 h-5 text-muted/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
               <input
                 type="text"
                 placeholder="Search products, e.g. thermocol plates, garbage bags…"
@@ -117,8 +119,8 @@ export default function Products() {
               <div className="flex justify-between items-center flex-wrap gap-4 border-b border-border pb-4">
                 <h3 className="text-xl font-bold">
                   {isSearchMode
-                    ? `Search results for "${query}" — ${displayedProducts.length} products`
-                    : `${categories.find((c) => c.id === activeCategory)?.name} — ${displayedProducts.length} products`}
+                    ? `Search results for "${query}" (${displayedProducts.length} products)`
+                    : `${categories.find((c) => c.id === activeCategory)?.name} (${displayedProducts.length} products)`}
                 </h3>
                 {isSearchMode && (
                   <button className="btn btn-outline-dark btn-sm" onClick={() => { setQuery(''); setSearchInput(''); }}>
@@ -128,7 +130,9 @@ export default function Products() {
               </div>
               {displayedProducts.length === 0 ? (
                 <div className="text-center py-16 bg-bg-card border border-border rounded-2xl flex flex-col items-center gap-4">
-                  <div className="text-5xl">🔍</div>
+                  <svg className="w-16 h-16 text-muted/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
                   <h3 className="font-heading font-bold text-xl">No products found</h3>
                   <p className="text-muted">Try a different search term or browse by category.</p>
                   <button className="btn btn-primary" onClick={() => { setQuery(''); setSearchInput(''); setActiveCategory('all'); }}>
@@ -155,7 +159,7 @@ export default function Products() {
             We stock 500+ products. Contact us on WhatsApp and we'll check availability for you.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-whatsapp btn-lg">💬 Ask on WhatsApp</a>
+            <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-whatsapp btn-lg">Ask on WhatsApp</a>
             <Link to="/contact" className="btn btn-outline btn-lg">Send Inquiry →</Link>
           </div>
         </div>

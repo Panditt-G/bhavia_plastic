@@ -3,7 +3,7 @@ export const categories = [
   {
     id: 'cups-glasses',
     name: 'Disposable Cups & Glasses',
-    icon: '🥤',
+    icon: '',
     cloudinaryId: 'bhavia/cat_cups_glasses',
     description: 'Wide range of disposable cups and glasses for tea, water, and hot beverages. Perfect for offices, events, and restaurants.',
     productCount: 5,
@@ -12,7 +12,7 @@ export const categories = [
   {
     id: 'plates',
     name: 'Disposable Plates',
-    icon: '🍽️',
+    icon: '',
     cloudinaryId: 'bhavia/cat_plates',
     description: 'Quality disposable plates in paper, thermocol, silver, and plastic for all your serving needs.',
     productCount: 5,
@@ -21,7 +21,7 @@ export const categories = [
   {
     id: 'food-packaging',
     name: 'Food Packaging',
-    icon: '📦',
+    icon: '',
     cloudinaryId: 'bhavia/cat_food_packaging',
     description: 'Complete food packaging solutions including containers, lunch boxes, and trays for caterers and restaurants.',
     productCount: 6,
@@ -30,7 +30,7 @@ export const categories = [
   {
     id: 'paper-products',
     name: 'Paper Products',
-    icon: '🧻',
+    icon: '',
     cloudinaryId: 'bhavia/cat_paper_products',
     description: 'Essential paper products including napkins, kitchen tissue, butter paper, foil paper, and bags.',
     productCount: 6,
@@ -39,7 +39,7 @@ export const categories = [
   {
     id: 'cutlery',
     name: 'Plastic Cutlery',
-    icon: '🍴',
+    icon: '',
     cloudinaryId: 'bhavia/cat_cutlery',
     description: 'Disposable plastic cutlery including spoons, forks, knives, stirrers, and bowls for dining needs.',
     productCount: 5,
@@ -48,7 +48,7 @@ export const categories = [
   {
     id: 'packaging-materials',
     name: 'Packaging Materials',
-    icon: '🎁',
+    icon: '',
     cloudinaryId: 'bhavia/cat_packaging_materials',
     description: 'Professional packaging materials including stretch film, tapes, carry bags, and wrapping materials.',
     productCount: 6,
@@ -57,7 +57,7 @@ export const categories = [
   {
     id: 'cleaning-supplies',
     name: 'Cleaning Supplies',
-    icon: '🧹',
+    icon: '',
     cloudinaryId: 'bhavia/cat_cleaning',
     description: 'Complete range of cleaning supplies for homes, offices, and commercial establishments.',
     productCount: 6,
@@ -66,7 +66,7 @@ export const categories = [
   {
     id: 'household',
     name: 'Daily Household Products',
-    icon: '🏠',
+    icon: '',
     cloudinaryId: 'bhavia/cat_household',
     description: 'Everyday household essentials including candles, buckets, storage containers, and mops.',
     productCount: 6,
@@ -75,7 +75,7 @@ export const categories = [
   {
     id: 'festival',
     name: 'Festival Products',
-    icon: '🎉',
+    icon: '',
     cloudinaryId: 'bhavia/cat_festival',
     description: 'Special packaging and serving items for festivals including Modak boxes, gift packaging, and decorative items.',
     productCount: 4,

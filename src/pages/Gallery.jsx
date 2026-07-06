@@ -72,7 +72,11 @@ export default function Gallery() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-5 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <div className="font-heading font-bold text-white text-base">{img.title}</div>
-                  <div className="absolute top-4 right-4 bg-white/20 text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-sm backdrop-blur-md">🔍</div>
+                  <div className="absolute top-4 right-4 bg-white/20 text-white w-9 h-9 rounded-full flex items-center justify-center font-bold shadow-sm backdrop-blur-md">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
                 </div>
               </div>
             ))}

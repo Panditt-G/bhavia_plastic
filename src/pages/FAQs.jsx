@@ -31,7 +31,9 @@ export default function FAQs() {
         <div className="container max-w-3xl mx-auto">
           {/* Search */}
           <div className="flex gap-3 items-center bg-bg-card border border-border rounded-xl px-5 py-4 shadow-sm mb-8">
-            <span className="text-lg">🔍</span>
+            <svg className="w-5 h-5 text-muted/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
             <input
               type="text"
               placeholder="Search FAQs…"
@@ -76,8 +78,8 @@ export default function FAQs() {
             <h3 className="font-heading font-bold text-xl">Still have a question?</h3>
             <p className="text-muted">We're happy to help. Reach us directly via WhatsApp or phone.</p>
             <div className="flex gap-4 mt-2 flex-wrap justify-center">
-              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-whatsapp">💬 WhatsApp Us</a>
-              <a href={`tel:${contact.phone}`} className="btn btn-outline-dark">📞 Call Now</a>
+              <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-whatsapp">WhatsApp Us</a>
+              <a href={`tel:${contact.phone}`} className="btn btn-outline-dark">Call Now</a>
             </div>
           </div>
         </div>

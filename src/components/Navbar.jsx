@@ -52,27 +52,27 @@ export default function Navbar() {
                 <polygon points="10,10 20,5 20,15 10,20" fill="none" stroke="#0d1b2a" strokeWidth="1.2" strokeLinejoin="round"/>
               </g>
 
-              {/* ── "bhavia" — row 1 ── */}
+              {/* ── "BHAVIA" — row 1 ── */}
               <text
                 x="0"
                 y="44"
                 fontFamily="'Poppins', 'Inter', sans-serif"
-                fontSize="38"
-                fontWeight="800"
+                fontSize="35"
+                fontWeight="900"
                 fill="#0d1b2a"
-                letterSpacing="-0.5"
-              >bhavia</text>
+                letterSpacing="0"
+              >BHAVIA</text>
 
-              {/* ── "plastic" — row 2 ── */}
+              {/* ── "PLASTIC" — row 2 ── */}
               <text
                 x="0"
                 y="84"
                 fontFamily="'Poppins', 'Inter', sans-serif"
-                fontSize="38"
-                fontWeight="800"
+                fontSize="35"
+                fontWeight="900"
                 fill="#0d1b2a"
-                letterSpacing="-0.5"
-              >plastic</text>
+                letterSpacing="0"
+              >PLASTIC</text>
             </svg>
           </Link>
 
@@ -92,10 +92,9 @@ export default function Navbar() {
               }>
                 Products <span className="text-[0.7rem] ml-[2px] transition-transform duration-150 group-hover:rotate-180">▼</span>
               </NavLink>
-              <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl min-w-[280px] p-2 opacity-0 invisible scale-95 origin-top transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:scale-100 grid grid-cols-2 gap-[2px] z-[1010] border border-gray-100">
+              <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl w-[540px] p-2 opacity-0 invisible scale-95 origin-top transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:scale-100 grid grid-cols-2 gap-[2px] z-[1010] border border-gray-100">
                 {categories.map((cat) => (
-                  <Link key={cat.id} to={`/products/${cat.id}`} className="flex items-center gap-2 px-4 py-[10px] rounded-lg text-gray-700 text-[0.83rem] font-medium hover:bg-bg-section hover:text-[#0d1b2a] transition-all duration-150">
-                    <span className="text-base w-6 text-center">{cat.icon}</span>
+                  <Link key={cat.id} to={`/products/${cat.id}`} className="flex items-center gap-2 px-4 py-[10px] rounded-lg text-gray-700 text-[0.83rem] font-medium hover:bg-bg-section hover:text-[#0d1b2a] transition-all duration-150 whitespace-nowrap">
                     {cat.name}
                   </Link>
                 ))}
@@ -123,8 +122,10 @@ export default function Navbar() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full bg-[#f4f4f5] border border-gray-200 rounded-full pl-4 pr-10 py-2 text-sm font-sans outline-none focus:border-[#0d1b2a] transition-colors placeholder:text-gray-400 text-primary"
               />
-              <button type="submit" className="absolute right-3 text-gray-400 hover:text-[#0d1b2a]">
-                🔍
+              <button type="submit" className="absolute right-3 text-gray-400 hover:text-[#0d1b2a]" aria-label="Search">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </button>
             </form>
 
@@ -133,7 +134,7 @@ export default function Navbar() {
               href={`tel:${contact.phone}`}
               className="hidden md:inline-flex items-center gap-2 bg-[#0d1b2a] text-white font-bold text-[0.88rem] px-5 py-2.5 rounded-full shadow-md transition-all hover:bg-[#1e3a5f] hover:-translate-y-[1px]"
             >
-              <span>📞</span> Call Now
+              Call Now
             </a>
 
             {/* Mobile Hamburger */}
@@ -163,8 +164,10 @@ export default function Navbar() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-[#f4f4f5] border border-gray-200 rounded-full pl-4 pr-10 py-3 text-sm font-sans outline-none focus:border-[#0d1b2a] transition-colors placeholder:text-gray-400 text-primary"
           />
-          <button type="submit" className="absolute right-4 text-gray-400 hover:text-[#0d1b2a]">
-            🔍
+          <button type="submit" className="absolute right-4 text-gray-400 hover:text-[#0d1b2a]" aria-label="Search">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </button>
         </form>
 
@@ -189,7 +192,7 @@ export default function Navbar() {
               <NavLink to={`/products/${cat.id}`} onClick={closeMenu} className={({ isActive }) =>
                 `block px-4 py-2 text-gray-500 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'text-[#0d1b2a] font-semibold' : ''}`
               }>
-                {cat.icon} {cat.name}
+                {cat.name}
               </NavLink>
             </li>
           ))}
@@ -211,10 +214,10 @@ export default function Navbar() {
         </ul>
         <div className="flex flex-col gap-3 mt-8">
           <a href={`tel:${contact.phone}`} className="flex items-center justify-center gap-2 bg-[#0d1b2a] text-white font-bold py-3.5 rounded-full shadow-md hover:bg-[#1e3a5f]">
-            📞 Call Now
+            Call Now
           </a>
           <a href={`https://wa.me/${contact.whatsapp}`} className="flex items-center justify-center gap-2 bg-whatsapp text-white font-bold py-3.5 rounded-full shadow-md hover:bg-whatsapp-dark" target="_blank" rel="noreferrer">
-            💬 WhatsApp
+            WhatsApp
           </a>
         </div>
       </div>

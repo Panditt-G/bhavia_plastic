@@ -11,7 +11,7 @@ export const products = [
   { id: 'paper-plates', name: 'Paper Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Sturdy paper plates for dry and semi-wet food. Available in 6", 8", and 12" sizes.', tags: ['paper', 'plate'] },
   { id: 'thermocol-plates', name: 'Thermocol Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Lightweight thermocol plates, heat-resistant, ideal for hot food serving.', tags: ['thermocol', 'plate', 'foam'] },
   { id: 'silver-plates', name: 'Silver Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Premium silver foil plates with an elegant look. Perfect for weddings and celebrations.', tags: ['silver', 'foil', 'plate', 'premium'] },
-  { id: 'areca-plates', name: 'Areca Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Natural areca palm leaf plates — 100% biodegradable and eco-friendly.', tags: ['areca', 'eco', 'natural', 'plate'] },
+  { id: 'areca-plates', name: 'Areca Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Natural areca palm leaf plates, 100% biodegradable and eco-friendly.', tags: ['areca', 'eco', 'natural', 'plate'] },
   { id: 'plastic-plates', name: 'Plastic Plates', category: 'plates', cloudinaryId: 'bhavia/cat_plates', description: 'Reusable and disposable plastic plates in various sizes. Bulk orders available.', tags: ['plastic', 'plate'] },
 
   // Food Packaging

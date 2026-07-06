@@ -32,7 +32,6 @@ export default function Category() {
           <div className="text-[0.8rem] text-accent-light/85 mb-1">
             <Link to="/" className="text-white transition-colors hover:text-accent">Home</Link> › <Link to="/products" className="text-white transition-colors hover:text-accent">Products</Link> › {category.name}
           </div>
-          <div className="text-[2.5rem] filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.25)]">{category.icon}</div>
           <h1 className="text-white mt-1">{category.name}</h1>
           <p className="text-white/80">{category.description}</p>
           <div className="flex gap-4 mt-4 flex-wrap">
@@ -42,9 +41,9 @@ export default function Category() {
               rel="noreferrer"
               className="btn btn-whatsapp btn-lg"
             >
-              💬 Inquire on WhatsApp
+              Inquire on WhatsApp
             </a>
-            <a href={`tel:${contact.phone}`} className="btn btn-primary btn-lg">📞 Call Now</a>
+            <a href={`tel:${contact.phone}`} className="btn btn-primary btn-lg">Call Now</a>
           </div>
         </div>
       </div>
@@ -53,7 +52,7 @@ export default function Category() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <div className="section-label">{category.icon} {category.name}</div>
+            <div className="section-label">{category.name}</div>
             <h2>Available Products ({categoryProducts.length})</h2>
             <p>{category.description}</p>
           </div>
@@ -77,7 +76,7 @@ export default function Category() {
                 rel="noreferrer"
                 className="btn btn-whatsapp"
               >
-                💬 WhatsApp for Bulk Order
+                WhatsApp for Bulk Order
               </a>
               <Link to="/contact" className="btn btn-outline-dark">Send Inquiry →</Link>
             </div>

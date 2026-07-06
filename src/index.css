@@ -47,7 +47,7 @@
   }
   
   .section-label {
-    @apply text-[0.72rem] font-bold tracking-widest uppercase text-accent flex items-center gap-2 mb-2 before:content-[''] before:w-7 before:h-[2px] before:bg-accent before:inline-block;
+    @apply text-[0.72rem] font-bold tracking-widest uppercase text-accent flex items-center gap-2 mb-2;
   }
   
   .section-header {
@@ -102,15 +102,16 @@
 /* Custom Scrollbar styles */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
-  @apply bg-bg;
+  @apply bg-transparent;
 }
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-light rounded-sm;
+  @apply bg-accent/40 rounded-full;
 }
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary;
+  @apply bg-accent;
 }
 
 /* Text Selection */

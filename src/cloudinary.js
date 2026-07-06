@@ -42,12 +42,11 @@ export function buildUrl(publicId, { width, height } = {}) {
   img.delivery(format(autoFormat())).delivery(quality(autoQuality()));
 
   if (width || height) {
-    img.resize(
-      auto()
-        .width(width ?? undefined)
-        .height(height ?? undefined)
-        .gravity(autoGravity())
-    );
+    const resizeAction = auto();
+    if (width) resizeAction.width(width);
+    if (height) resizeAction.height(height);
+    resizeAction.gravity(autoGravity());
+    img.resize(resizeAction);
   }
 
   return img.toURL();
