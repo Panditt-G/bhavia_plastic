@@ -1,5 +1,5 @@
 // All Products Data
-export const products = [
+const rawProducts = [
   // Cups & Glasses
   { id: 'plastic-tea-glass', name: 'Plastic Tea Glass', category: 'cups-glasses', cloudinaryId: 'bhavia/cat_cups_glasses', description: 'Durable plastic tea glasses ideal for offices, events, and daily use. Available in bulk.', tags: ['plastic', 'tea', 'glass', 'cup'] },
   { id: 'water-glass', name: 'Water Glass', category: 'cups-glasses', cloudinaryId: 'bhavia/cat_cups_glasses', description: 'Clear disposable water glasses, perfect for weddings, parties, and functions.', tags: ['water', 'glass', 'clear'] },
@@ -76,6 +76,11 @@ export const products = [
   { id: 'step-ladder', name: 'Aluminum Step Ladder', category: 'packaging-materials', cloudinaryId: 'bhavia/cat_packaging_materials', description: 'Heavy-duty folding aluminum step ladders for warehouse and store usage.', tags: ['ladder', 'step', 'aluminum', 'foldable'] },
   { id: 'fire-extinguisher', name: 'Safety Fire Extinguisher', category: 'cleaning-supplies', cloudinaryId: 'bhavia/cat_cleaning', description: 'Industrial and residential fire extinguishers and safety setups.', tags: ['fire', 'equipment', 'safety', 'extinguisher'] },
 ];
+
+export const products = rawProducts.map((p) => ({
+  ...p,
+  cloudinaryId: `bhavia/products/${p.id}`,
+}));
 
 export const getProductsByCategory = (categoryId) =>
   products.filter((p) => p.category === categoryId);

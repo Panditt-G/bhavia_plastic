@@ -588,7 +588,7 @@ export default function Home() {
                 { name: 'Dustbin',             cloudId: 'bhavia/cat_household', id: 'dustbin' },
                 { name: 'Cleaning\nBrushes',   cloudId: 'bhavia/cat_cleaning', id: 'cleaning-brushes' },
               ].map((item) => {
-                const uniqueImg = `/images/products/${item.id}.png`;
+                const cloudUrl = buildUrl(`bhavia/products/${item.id}`, { width: 160, height: 160, crop: 'fit' });
                 const fallbackUrl = buildUrl(item.cloudId, { width: 160, height: 160, crop: 'fit' });
                 return (
                   <div
@@ -596,7 +596,7 @@ export default function Home() {
                     className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
                   >
                     <img
-                      src={uniqueImg}
+                      src={cloudUrl}
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = fallbackUrl;
@@ -638,15 +638,15 @@ export default function Home() {
                   </h3>
                   <HorizontalScrollContainer>
                     {catProducts.map((p) => {
-                      const uniqueImg = `/images/products/${p.id}.png`;
-                      const fallbackUrl = buildUrl(p.cloudinaryId, { width: 200, height: 200, crop: 'fit' });
+                      const cloudUrl = buildUrl(p.cloudinaryId, { width: 200, height: 200, crop: 'fit' });
+                      const fallbackUrl = buildUrl(`bhavia/cat_${p.category}`, { width: 200, height: 200, crop: 'fit' });
                       return (
                         <div
                           key={p.id}
                           className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
                         >
                           <img
-                            src={uniqueImg}
+                            src={cloudUrl}
                             onError={(e) => {
                               e.target.onerror = null;
                               e.target.src = fallbackUrl;
