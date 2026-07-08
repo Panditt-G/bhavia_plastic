@@ -21,7 +21,7 @@ export default function Products() {
     }
   };
 
-
+  useEffect(() => {
     setQuery(initialSearch);
   }, [initialSearch]);
 
@@ -116,7 +116,7 @@ export default function Products() {
                     : `${categories.find((c) => c.id === activeCategory)?.name} (${displayedProducts.length} products)`}
                 </h3>
                 {isSearchMode && (
-                  <button className="btn btn-outline-dark btn-sm" onClick={() => { setQuery(''); setSearchInput(''); }}>
+                  <button className="btn btn-outline-dark btn-sm" onClick={() => setQuery('')}>
                     Clear Search
                   </button>
                 )}
@@ -128,7 +128,7 @@ export default function Products() {
                   </svg>
                   <h3 className="font-heading font-bold text-xl">No products found</h3>
                   <p className="text-muted">Try a different search term or browse by category.</p>
-                  <button className="btn btn-primary" onClick={() => { setQuery(''); setSearchInput(''); setActiveCategory('all'); }}>
+                  <button className="btn btn-primary" onClick={() => { setQuery(''); setActiveCategory('all'); }}>
                     Browse All Categories
                   </button>
                 </div>
