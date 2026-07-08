@@ -8,6 +8,7 @@ import CategoryCard from '../components/CategoryCard';
 import ProductCard from '../components/ProductCard';
 import { useState, useRef } from 'react';
 import { products } from '../data/products';
+import { buildUrl } from '../cloudinary';
 
 function HorizontalScrollContainer({ children }) {
   const containerRef = useRef(null);
