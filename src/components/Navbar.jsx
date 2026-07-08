@@ -31,7 +31,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[1000] bg-white h-20 border-b border-gray-100 flex items-center transition-all duration-250 ${
+      <nav className={`fixed top-0 left-0 right-0 z-[1000] bg-white h-16 sm:h-20 border-b border-gray-100 flex items-center transition-all duration-250 ${
         scrolled ? 'shadow-md bg-white/95 backdrop-blur-md' : ''
       }`}>
         <div className="container flex items-center justify-between gap-4 h-full">
@@ -40,7 +40,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center shrink-0" onClick={closeMenu}>
             <svg
               viewBox="0 0 220 92"
-              className="h-12 w-auto"
+              className="h-9 sm:h-12 w-auto"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -133,7 +133,7 @@ export default function Navbar() {
       </nav>
 
       {/* Mobile Drawer Menu */}
-      <div className={`fixed top-20 left-0 right-0 bottom-0 bg-white z-[999] overflow-y-auto transition-transform duration-250 p-6 pb-24 border-t border-gray-100 ${
+      <div className={`fixed top-16 sm:top-20 left-0 right-0 bottom-0 bg-white z-[999] overflow-y-auto transition-transform duration-250 p-4 sm:p-6 pb-24 border-t border-gray-100 ${
         menuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         {/* Mobile Search */}
@@ -184,7 +184,7 @@ export default function Navbar() {
           </a>
         </div>
       </div>
-      {menuOpen && <div className="fixed inset-0 bg-black/30 z-[998] top-20" onClick={closeMenu} />}
+      {menuOpen && <div className="fixed inset-0 bg-black/30 z-[998] top-16 sm:top-20" onClick={closeMenu} />}
     </>
   );
 }

@@ -19,7 +19,7 @@ export default function Category() {
     <>
       <SEO title={category.name} description={category.description} />
       {/* Category Banner */}
-      <div className="relative text-white py-20 overflow-hidden">
+      <div className="relative text-white py-12 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
           <img
             src={buildUrl(category.cloudinaryId, { width: 1400, height: 400 })}
@@ -34,7 +34,7 @@ export default function Category() {
           </div>
           <h1 className="text-white mt-1">{category.name}</h1>
           <p className="text-white/80">{category.description}</p>
-          <div className="flex gap-4 mt-4 flex-wrap">
+          <div className="flex gap-3 sm:gap-4 mt-3 sm:mt-4 flex-wrap">
             <a
               href={`https://wa.me/${contact.whatsapp}?text=${waMsg}`}
               target="_blank"
@@ -57,14 +57,14 @@ export default function Category() {
             <p>{category.description}</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
             {categoryProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
 
           {/* Bottom CTA */}
-          <div className="flex flex-col md:flex-row justify-between items-center bg-bg-section border border-border rounded-2xl p-8 mt-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-center bg-bg-section border border-border rounded-2xl p-5 sm:p-8 mt-10 sm:mt-16 gap-4 sm:gap-6">
             <div className="flex flex-col gap-1.5 text-center md:text-left">
               <h3 className="font-heading font-bold text-xl">Need to Order in Bulk?</h3>
               <p className="text-muted text-sm">Get special wholesale pricing for large orders of {category.name.toLowerCase()}.</p>

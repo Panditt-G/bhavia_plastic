@@ -5,11 +5,11 @@ export default function Contact() {
   return (
     <>
       <SEO title="Contact Us" description="Get in touch with Bhavia Plastic for wholesale inquiries, bulk orders, or to visit our store in Nashik." />
-      <section className="pt-8 md:pt-10 pb-16 md:pb-24">
+      <section className="pt-4 sm:pt-8 md:pt-10 pb-10 sm:pb-16 md:pb-24">
         <div className="container max-w-4xl mx-auto">
           {/* Info Column */}
           <div className="flex flex-col gap-6">
-            <h1 className="text-3xl md:text-4xl font-bold">Our Contact Details</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">Our Contact Details</h1>
             <p>Visit us in Nashik or reach out through any of the channels below.</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -83,11 +83,11 @@ export default function Contact() {
             </div>
 
             {/* Map */}
-            <div className="rounded-xl overflow-hidden border border-border shadow-sm mt-4">
+            <div className="rounded-xl overflow-hidden border border-border shadow-sm mt-3 sm:mt-4">
               <iframe
                 src={contact.mapEmbed}
                 width="100%"
-                height="300"
+                height="250"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"

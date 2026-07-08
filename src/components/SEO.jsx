@@ -5,7 +5,7 @@ export default function SEO({ title, description, keywords, image }) {
   const location = useLocation();
   const currentUrl = `https://bhaviaplastic.com${location.pathname}`;
   
-  const siteTitle = title ? `${title} | Bhavia Plastic` : 'Bhavia Plastic | Wholesale & Retail Disposable Products in Nashik';
+  const siteTitle = 'Bhavia Plastic';
   const defaultDesc = "Bhavia Plastic – Nashik's trusted wholesale & retail supplier of disposable cups, plates, food packaging, cleaning supplies & more.";
   const defaultImg = "https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/hero_background";
 

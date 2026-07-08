@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="flex-grow pt-20">
+      <main className="flex-grow pt-16 sm:pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

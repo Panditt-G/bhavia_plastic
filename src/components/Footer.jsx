@@ -7,14 +7,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary-dark text-white">
-      <div className="py-16 md:py-24">
-        <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1.5fr] gap-12 lg:gap-16">
+      <div className="py-10 sm:py-16 md:py-24">
+        <div className="container grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1.5fr] gap-8 sm:gap-12 lg:gap-16">
           {/* Brand */}
-          <div className="md:col-span-2 lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center shrink-0 mb-4">
               <svg
                 viewBox="0 0 220 92"
-                className="h-11 w-auto"
+                className="h-9 sm:h-11 w-auto"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -48,7 +48,7 @@ export default function Footer() {
                 >PLASTIC</text>
               </svg>
             </Link>
-            <p className="text-white/55 text-[0.87rem] leading-relaxed mb-6">
+            <p className="text-white/55 text-[0.8rem] sm:text-[0.87rem] leading-relaxed mb-4 sm:mb-6">
               Established in 2017, Bhavia Plastic is Nashik's trusted wholesale &amp; retail
               supplier of disposable products, packaging materials, and household essentials.
             </p>
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h4 className="text-white text-[0.9rem] font-bold uppercase tracking-wider mb-6">Contact Us</h4>
             <ul className="flex flex-col gap-4">
               <li className="flex gap-3 items-start">

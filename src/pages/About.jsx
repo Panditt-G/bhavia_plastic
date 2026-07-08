@@ -9,9 +9,9 @@ export default function About() {
 
 
       {/* Story Section */}
-      <section className="pt-8 md:pt-10 pb-16 md:pb-24">
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative rounded-2xl overflow-hidden shadow-lg">
+      <section className="pt-4 sm:pt-8 md:pt-10 pb-10 sm:pb-16 md:pb-24">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img
               src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
               alt="Bhavia Plastic wholesale and retail shop front in Nashik"
@@ -25,7 +25,7 @@ export default function About() {
           </div>
           <div className="flex flex-col gap-4 items-start">
             <div className="section-label">Our Story</div>
-            <h1 className="text-3xl md:text-4xl font-bold mt-2">9 Years of Serving Nashik with Quality Products</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-2">9 Years of Serving Nashik with Quality Products</h1>
             <p>
               <strong>Bhavia Plastic</strong> was founded in 2017 with a simple mission: to provide
               Nashik with a one-stop destination for high-quality disposable products at competitive prices.
@@ -36,16 +36,16 @@ export default function About() {
               Today, we supply to over 1,000 satisfied customers, from individual households to
               major hotels, catering businesses, corporate offices, hospitals, and event management companies.
             </p>
-            <div className="grid grid-cols-2 gap-6 mt-6 w-full">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 mt-4 sm:mt-6 w-full">
               {[
                 { n: '2017', l: 'Established' },
                 { n: '9+', l: 'Years Experience' },
                 { n: '500+', l: 'Products' },
                 { n: '1000+', l: 'Customers' },
               ].map((s) => (
-                <div key={s.l} className="bg-bg-section p-5 rounded-xl border border-border text-center">
-                  <div className="font-heading font-extrabold text-2xl text-accent leading-none">{s.n}</div>
-                  <div className="text-[0.75rem] font-bold text-primary-light uppercase tracking-wider mt-1.5">{s.l}</div>
+                <div key={s.l} className="bg-bg-section p-3 sm:p-5 rounded-xl border border-border text-center">
+                  <div className="font-heading font-extrabold text-xl sm:text-2xl text-accent leading-none">{s.n}</div>
+                  <div className="text-[0.65rem] sm:text-[0.75rem] font-bold text-primary-light uppercase tracking-wider mt-1 sm:mt-1.5">{s.l}</div>
                 </div>
               ))}
             </div>
@@ -60,7 +60,7 @@ export default function About() {
             <div className="section-label">Our Strengths</div>
             <h2>Why Nashik Trusts Us</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
             {[
               { 
                 icon: (
@@ -117,10 +117,10 @@ export default function About() {
                 d: 'A wide range of products across 8 categories, everything under one roof.' 
               },
             ].map((h) => (
-              <div key={h.t} className="bg-bg-card rounded-xl p-6 border border-border flex flex-col gap-2.5 hover:shadow-md transition-shadow duration-200">
+              <div key={h.t} className="bg-bg-card rounded-xl p-4 sm:p-6 border border-border flex flex-col gap-2 sm:gap-2.5 hover:shadow-md transition-shadow duration-200">
                 <div>{h.icon}</div>
-                <h4 className="font-heading font-bold text-primary text-base leading-tight">{h.t}</h4>
-                <p className="text-[0.85rem] text-muted leading-relaxed">{h.d}</p>
+                <h4 className="font-heading font-bold text-primary text-[0.85rem] sm:text-base leading-tight">{h.t}</h4>
+                <p className="text-[0.78rem] sm:text-[0.85rem] text-muted leading-relaxed">{h.d}</p>
               </div>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function About() {
             <h2>Wholesale &amp; Retail for Every Customer</h2>
             <p>We serve a diverse range of customers across Nashik with bulk and retail options.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             {[
               { 
                 img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&h=420&q=80',
@@ -176,7 +176,7 @@ export default function About() {
             ].map((s) => (
               <div 
                 key={s.t} 
-                className="relative overflow-hidden rounded-[24px] flex flex-col bg-[#2B3822] h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="relative overflow-hidden rounded-2xl sm:rounded-[24px] flex flex-col bg-[#2B3822] h-[220px] sm:h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                   {/* Image Section */}
                   <div className="w-full h-[55%] relative overflow-hidden">
@@ -188,25 +188,25 @@ export default function About() {
                     />
                     
                     {/* Top Left Icon Badge */}
-                    <div className="absolute top-3 left-3 bg-[#2B3822] text-white w-10 h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
+                    <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-[#2B3822] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
                       {s.icon}
                     </div>
                     
                     {/* Top Right Pill */}
-                    <div className="absolute top-3 right-3 bg-white text-[#2B3822] text-[0.65rem] font-bold px-3 py-1.5 rounded-full shadow-sm z-10">
+                    <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-white text-[#2B3822] text-[0.55rem] sm:text-[0.65rem] font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm z-10">
                       Trusted Partner
                     </div>
                   </div>
                   
                   {/* Text Section */}
-                  <div className="w-full h-[45%] px-5 py-4 flex items-center justify-between">
-                    <div className="flex-1 pr-4 text-left">
-                      <h4 className="font-heading font-bold text-white text-[1rem] leading-tight mb-1.5 truncate">{s.t}</h4>
-                      <p className="text-[0.7rem] text-white/70 leading-snug line-clamp-3">{s.d}</p>
+                  <div className="w-full h-[45%] px-3 sm:px-5 py-3 sm:py-4 flex items-center justify-between">
+                    <div className="flex-1 pr-2 sm:pr-4 text-left">
+                      <h4 className="font-heading font-bold text-white text-[0.82rem] sm:text-[1rem] leading-tight mb-1 sm:mb-1.5 truncate">{s.t}</h4>
+                      <p className="text-[0.62rem] sm:text-[0.7rem] text-white/70 leading-snug line-clamp-2 sm:line-clamp-3">{s.d}</p>
                     </div>
                     
                     {/* Arrow Button */}
-                    <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
+                    <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function About() {
 
       {/* Corporate Orders */}
       <section className="section section-dark">
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div>
             <div className="section-label">Corporate Supply</div>
             <h2>Corporate &amp; Bulk Order Program</h2>

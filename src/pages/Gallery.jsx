@@ -27,7 +27,7 @@ export default function Gallery() {
   return (
     <>
       {/* Page Header */}
-      <div className="bg-primary text-white py-16 md:py-20 text-center">
+      <div className="bg-primary text-white py-10 sm:py-16 md:py-20 text-center">
         <div className="container">
           <div className="section-label">Our Gallery</div>
           <h1 className="text-white mt-2">Gallery</h1>
@@ -38,11 +38,11 @@ export default function Gallery() {
       <section className="section">
         <div className="container">
           {/* Tabs */}
-          <div className="flex gap-2 justify-center mb-12">
+          <div className="flex gap-2 justify-center mb-8 sm:mb-12">
             {tabs.map((tab) => (
               <button
                 key={tab}
-                className={`px-[22px] py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 ${
+                className={`px-4 sm:px-[22px] py-2 sm:py-2.5 rounded-full font-semibold text-[0.78rem] sm:text-[0.88rem] transition-all duration-150 ${
                   activeTab === tab 
                     ? 'bg-accent text-primary shadow-accent' 
                     : 'bg-bg-section text-muted hover:bg-border/60'
@@ -55,12 +55,12 @@ export default function Gallery() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 grid-flow-row-dense">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 grid-flow-row-dense">
             {filtered.map((img, i) => (
               <div
                 key={img.id}
-                className={`relative rounded-xl overflow-hidden h-[220px] cursor-pointer border border-border group ${
-                  i === 0 ? 'md:col-span-2 md:row-span-2 md:h-[460px]' : ''
+                className={`relative rounded-xl overflow-hidden h-[140px] sm:h-[220px] cursor-pointer border border-border group ${
+                  i === 0 ? 'col-span-2 sm:col-span-2 md:col-span-2 md:row-span-2 md:h-[460px] h-[200px] sm:h-[300px]' : ''
                 }`}
                 onClick={() => setLightbox(img)}
               >
@@ -86,7 +86,7 @@ export default function Gallery() {
 
       {/* Lightbox */}
       {lightbox && (
-        <div className="fixed inset-0 bg-black/90 z-[2000] flex items-center justify-center p-6" onClick={() => setLightbox(null)}>
+        <div className="fixed inset-0 bg-black/90 z-[2000] flex items-center justify-center p-3 sm:p-6" onClick={() => setLightbox(null)}>
           <div className="relative max-w-4xl w-full flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
             <button className="absolute -top-10 right-0 bg-white/10 text-white hover:bg-white/25 w-8 h-8 rounded-full flex items-center justify-center text-sm" onClick={() => setLightbox(null)}>✕</button>
             <img

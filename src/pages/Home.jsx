@@ -114,31 +114,31 @@ export default function Home() {
 
         {/* ── CATEGORY CIRCLES ROW ── */}
         {/* ── AUTO-SCROLLING PRODUCT SLIDER ── */}
-        <div className="bg-white pt-4 pb-6 overflow-hidden border-b border-gray-100 z-10">
+        <div className="bg-white pt-3 sm:pt-4 pb-4 sm:pb-6 overflow-hidden border-b border-gray-100 z-10">
           <div className="w-full overflow-visible relative">
             <div className="flex gap-2 animate-marquee w-max">
               {/* First Set of Items */}
               {sliderItems.map((item, index) => (
-                <Link key={`slide-1-${index}`} to={item.link} className="relative flex flex-col items-center gap-3 text-center shrink-0 w-[112px] group transition-transform duration-200 hover:scale-110 hover:z-10">
+                <Link key={`slide-1-${index}`} to={item.link} className="relative flex flex-col items-center gap-2 sm:gap-3 text-center shrink-0 w-[80px] sm:w-[112px] group transition-transform duration-200 hover:scale-110 hover:z-10">
                   <img
                     src={buildUrl(item.cloudId, { width: 200, height: 200 })}
                     alt={item.name}
-                    className="w-[100px] h-[100px] rounded-full object-cover border-2 border-black shadow-sm group-hover:shadow-lg transition-all duration-200"
+                    className="w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] rounded-full object-cover border-2 border-black shadow-sm group-hover:shadow-lg transition-all duration-200"
                     loading="lazy"
                   />
-                  <span className="text-[12.5px] font-semibold text-gray-700 leading-tight group-hover:text-[#0d1b2a] transition-colors">{item.name}</span>
+                  <span className="text-[10px] sm:text-[12.5px] font-semibold text-gray-700 leading-tight group-hover:text-[#0d1b2a] transition-colors">{item.name}</span>
                 </Link>
               ))}
               {/* Second Set of Items (for seamless infinite loop) */}
               {sliderItems.map((item, index) => (
-                <Link key={`slide-2-${index}`} to={item.link} className="relative flex flex-col items-center gap-3 text-center shrink-0 w-[112px] group transition-transform duration-200 hover:scale-110 hover:z-10">
+                <Link key={`slide-2-${index}`} to={item.link} className="relative flex flex-col items-center gap-2 sm:gap-3 text-center shrink-0 w-[80px] sm:w-[112px] group transition-transform duration-200 hover:scale-110 hover:z-10">
                   <img
                     src={buildUrl(item.cloudId, { width: 200, height: 200 })}
                     alt={item.name}
-                    className="w-[100px] h-[100px] rounded-full object-cover border-2 border-black shadow-sm group-hover:shadow-lg transition-all duration-200"
+                    className="w-[70px] h-[70px] sm:w-[100px] sm:h-[100px] rounded-full object-cover border-2 border-black shadow-sm group-hover:shadow-lg transition-all duration-200"
                     loading="lazy"
                   />
-                  <span className="text-[12.5px] font-semibold text-gray-700 leading-tight group-hover:text-[#0d1b2a] transition-colors">{item.name}</span>
+                  <span className="text-[10px] sm:text-[12.5px] font-semibold text-gray-700 leading-tight group-hover:text-[#0d1b2a] transition-colors">{item.name}</span>
                 </Link>
               ))}
             </div>
@@ -147,7 +147,7 @@ export default function Home() {
 
         {/* ── MAIN HERO BANNER ── */}
         <div
-          className="relative min-h-[360px] sm:min-h-[420px] lg:min-h-[480px] bg-no-repeat flex flex-col justify-center py-10 md:py-12 px-5 md:px-0"
+          className="relative min-h-[280px] sm:min-h-[360px] lg:min-h-[480px] bg-no-repeat flex flex-col justify-center py-8 sm:py-10 md:py-12 px-4 sm:px-5 md:px-0"
           style={{
             backgroundImage: "url('https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/hero_bg.jpg')",
             backgroundSize: 'cover',
@@ -161,7 +161,7 @@ export default function Home() {
           <div className="container relative z-[3] w-full flex flex-col items-start">
             <div className="w-full max-w-xl">
               {/* Heading — smaller on mobile */}
-              <h1 className="text-white font-heading font-extrabold text-[1.9rem] sm:text-[2.6rem] md:text-[3.2rem] lg:text-[4rem] leading-[1.12] mb-3 tracking-tight">
+              <h1 className="text-white font-heading font-extrabold text-[1.5rem] sm:text-[2.6rem] md:text-[3.2rem] lg:text-[4rem] leading-[1.12] mb-2 sm:mb-3 tracking-tight">
                 Wholesale Shop<br />
                 Near You in<br />
                 <span className="text-[#E87C2B]">Nashik</span>
@@ -171,21 +171,21 @@ export default function Home() {
               <div className="w-[56px] h-[3px] bg-accent rounded-full mb-4 md:mb-6"></div>
 
               {/* Subheading */}
-              <p className="text-white/85 text-sm md:text-base lg:text-lg mb-6 md:mb-8 font-sans font-medium tracking-wide">
+              <p className="text-white/85 text-xs sm:text-sm md:text-base lg:text-lg mb-4 sm:mb-6 md:mb-8 font-sans font-medium tracking-wide">
                 All Products Under One Roof
               </p>
 
               {/* Buttons — stack on very small, row on sm+ */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-row gap-2.5 sm:gap-3 sm:flex-row">
                 <a
                   href={`tel:${contact.phone}`}
-                  className="inline-flex items-center justify-center gap-2 bg-[#0d1b2a] hover:bg-[#1e3a5f] text-white font-bold text-[0.88rem] px-6 py-3 rounded-full border border-white/20 transition-all duration-150 hover:-translate-y-[1px]"
+                  className="inline-flex items-center justify-center gap-2 bg-[#0d1b2a] hover:bg-[#1e3a5f] text-white font-bold text-[0.78rem] sm:text-[0.88rem] px-4 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/20 transition-all duration-150 hover:-translate-y-[1px]"
                 >
                   Call Now
                 </a>
                 <Link
                   to="/products"
-                  className="inline-flex items-center justify-center gap-2 border border-white/60 bg-transparent hover:bg-white/10 text-white font-bold text-[0.88rem] px-6 py-3 rounded-full transition-all duration-150"
+                  className="inline-flex items-center justify-center gap-2 border border-white/60 bg-transparent hover:bg-white/10 text-white font-bold text-[0.78rem] sm:text-[0.88rem] px-4 sm:px-6 py-2.5 sm:py-3 rounded-full transition-all duration-150"
                 >
                   Explore Products
                 </Link>
@@ -252,8 +252,8 @@ export default function Home() {
 
       {/* ── ABOUT SNIPPET ── */}
       <section className="section">
-        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[300px]">
+        <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+          <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-full min-h-[200px] sm:min-h-[300px]">
             <img
               src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
               alt="Bhavia Plastic wholesale store in Nashik"
@@ -289,12 +289,12 @@ export default function Home() {
             <div className="section-label">Our Products</div>
             <h2>Browse by Category</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             {categories.map((cat) => (
               <CategoryCard key={cat.id} category={cat} />
             ))}
           </div>
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 sm:mt-12">
             <Link to="/products" className="btn btn-outline-dark btn-lg">View All Products →</Link>
           </div>
         </div>
@@ -303,11 +303,11 @@ export default function Home() {
       {/* ── WHO WE SERVE ── */}
       <section className="section bg-bg-section/40">
         <div className="container">
-          <div className="section-header center max-w-xl mx-auto mb-12">
+          <div className="section-header center max-w-xl mx-auto mb-8 sm:mb-12">
             <div className="section-label">Who We Serve</div>
             <h2 className="mt-2">Wholesale &amp; Retail for Every Need</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             {[
               { 
                 img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&h=420&q=80',
@@ -348,7 +348,7 @@ export default function Home() {
             ].map((s) => (
               <div 
                 key={s.title} 
-                className="relative overflow-hidden rounded-[24px] flex flex-col bg-[#2B3822] h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="relative overflow-hidden rounded-2xl sm:rounded-[24px] flex flex-col bg-[#2B3822] h-[220px] sm:h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 {/* Image Section */}
                 <div className="w-full h-[55%] relative overflow-hidden">
@@ -360,25 +360,25 @@ export default function Home() {
                   />
                   
                   {/* Top Left Icon Badge */}
-                  <div className="absolute top-3 left-3 bg-[#2B3822] text-white w-10 h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
+                  <div className="absolute top-2 sm:top-3 left-2 sm:left-3 bg-[#2B3822] text-white w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
                     {s.icon}
                   </div>
                   
                   {/* Top Right Pill */}
-                  <div className="absolute top-3 right-3 bg-white text-[#2B3822] text-[0.65rem] font-bold px-3 py-1.5 rounded-full shadow-sm z-10">
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 bg-white text-[#2B3822] text-[0.55rem] sm:text-[0.65rem] font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-sm z-10">
                     Trusted Partner
                   </div>
                 </div>
                 
                 {/* Text Section */}
-                <div className="w-full h-[45%] px-5 py-4 flex items-center justify-between">
+                <div className="w-full h-[45%] px-3 sm:px-5 py-3 sm:py-4 flex items-center justify-between">
                   <div className="flex-1 pr-4 text-left">
-                    <h4 className="font-heading font-bold text-white text-[1rem] leading-tight mb-1.5 truncate">{s.title}</h4>
-                    <p className="text-[0.7rem] text-white/70 leading-snug line-clamp-3">{s.desc}</p>
+                    <h4 className="font-heading font-bold text-white text-[0.82rem] sm:text-[1rem] leading-tight mb-1 sm:mb-1.5 truncate">{s.title}</h4>
+                    <p className="text-[0.62rem] sm:text-[0.7rem] text-white/70 leading-snug line-clamp-2 sm:line-clamp-3">{s.desc}</p>
                   </div>
                   
                   {/* Arrow Button */}
-                  <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
+                  <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                   </div>
                 </div>
@@ -409,7 +409,7 @@ export default function Home() {
                   </h3>
                   <HorizontalScrollContainer>
                     {catProducts.map((p) => (
-                      <div key={p.id} className="w-[260px] shrink-0 snap-start">
+                      <div key={p.id} className="w-[160px] sm:w-[260px] shrink-0 snap-start">
                         <ProductCard product={p} />
                       </div>
                     ))}

@@ -19,7 +19,7 @@ export default function FAQs() {
   return (
     <>
       {/* Page Header */}
-      <div className="bg-primary text-white py-16 md:py-20 text-center">
+      <div className="bg-primary text-white py-10 sm:py-16 md:py-20 text-center">
         <div className="container">
           <div className="section-label">Help Center</div>
           <h1 className="text-white mt-2">Frequently Asked Questions</h1>
@@ -30,7 +30,7 @@ export default function FAQs() {
       <section className="section">
         <div className="container max-w-3xl mx-auto">
           {/* Search */}
-          <div className="flex gap-3 items-center bg-bg-card border border-border rounded-xl px-5 py-4 shadow-sm mb-8">
+          <div className="flex gap-3 items-center bg-bg-card border border-border rounded-xl px-4 sm:px-5 py-3 sm:py-4 shadow-sm mb-6 sm:mb-8">
             <svg className="w-5 h-5 text-muted/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -74,7 +74,7 @@ export default function FAQs() {
           )}
 
           {/* Still have questions */}
-          <div className="text-center bg-bg-section border border-border rounded-2xl p-8 mt-12 flex flex-col items-center gap-3">
+          <div className="text-center bg-bg-section border border-border rounded-2xl p-5 sm:p-8 mt-8 sm:mt-12 flex flex-col items-center gap-3">
             <h3 className="font-heading font-bold text-xl">Still have a question?</h3>
             <p className="text-muted">We're happy to help. Reach us directly via WhatsApp or phone.</p>
             <div className="flex gap-4 mt-2 flex-wrap justify-center">

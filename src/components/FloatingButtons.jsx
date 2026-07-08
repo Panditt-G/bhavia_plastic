@@ -2,7 +2,7 @@ import { contact } from '../data/contact';
 
 export default function FloatingButtons() {
   return (
-    <div className="fixed bottom-7 right-6 z-[900] flex flex-col gap-3 items-end max-sm:bottom-4 max-sm:right-3">
+    <div className="fixed bottom-4 sm:bottom-7 right-3 sm:right-6 z-[900] flex flex-col gap-2 sm:gap-3 items-end">
       {/* WhatsApp Button */}
       <a
         href={`https://wa.me/${contact.whatsapp}?text=Hi%20Bhavia%20Plastic%2C%20I%20need%20information%20about%20your%20products.`}

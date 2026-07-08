@@ -37,13 +37,13 @@ export default function Products() {
     <>
       <SEO title="Products" description="Explore our extensive range of wholesale disposable cups, plates, food containers, and cleaning supplies in Nashik." />
 
-      <section className="pt-8 md:pt-10 pb-16 md:pb-24">
+      <section className="pt-4 sm:pt-8 md:pt-10 pb-10 sm:pb-16 md:pb-24">
         <div className="container">
           <h1 className="sr-only">All Products</h1>
           {!isSearchMode && (
             <>
               {/* Category Filter Tabs */}
-              <div className="relative flex items-center mb-12 group">
+              <div className="relative flex items-center mb-8 sm:mb-12 group">
                 {/* Left Scroll Button */}
                 <button 
                   onClick={() => scroll('left')} 
@@ -55,7 +55,7 @@ export default function Products() {
 
                 <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-2 scrollbar-none w-full scroll-smooth">
                   <button 
-                    className={`px-5 py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
+                    className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-[0.78rem] sm:text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
                       activeCategory === 'all' 
                         ? 'bg-accent text-white shadow-accent' 
                         : 'bg-bg-section text-muted hover:bg-border/60'
@@ -67,7 +67,7 @@ export default function Products() {
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
-                      className={`px-5 py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
+                      className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-[0.78rem] sm:text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
                         activeCategory === cat.id 
                           ? 'bg-accent text-white shadow-accent' 
                           : 'bg-bg-section text-muted hover:bg-border/60'
@@ -96,7 +96,7 @@ export default function Products() {
                     <div className="section-label">Browse by Category</div>
                     <h2>Product Categories</h2>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 mb-8 sm:mb-12">
                     {categories.map((cat) => (
                       <CategoryCard key={cat.id} category={cat} />
                     ))}
@@ -133,7 +133,7 @@ export default function Products() {
                   </button>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
                   {displayedProducts.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
@@ -145,7 +145,7 @@ export default function Products() {
       </section>
 
       {/* CTA */}
-      <section className="section section-dark py-12 md:py-16">
+      <section className="section section-dark py-8 sm:py-12 md:py-16">
         <div className="container text-center">
           <h2>Can't Find What You Need?</h2>
           <p className="text-white/70 my-6 max-w-[500px] mx-auto">
