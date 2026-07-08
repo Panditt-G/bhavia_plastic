@@ -1,28 +1,20 @@
 import { Link } from 'react-router-dom';
-import { buildUrl } from '../cloudinary';
 import { contact } from '../data/contact';
+import SEO from '../components/SEO';
 
 export default function About() {
-  document.title = 'About Us | Bhavia Plastic Nashik';
-
   return (
     <>
-      {/* Page Header */}
-      <div className="bg-primary text-white py-16 md:py-20 text-center">
-        <div className="container">
-          <div className="section-label">Who We Are</div>
-          <h1 className="text-white mt-2">About Bhavia Plastic</h1>
-          <p className="text-white/80 mt-2">Nashik's trusted wholesale &amp; retail supplier since 2017</p>
-        </div>
-      </div>
+      <SEO title="About Us" description="Learn about Bhavia Plastic, Nashik's leading wholesale and retail supplier of disposable products since 2017." />
+
 
       {/* Story Section */}
-      <section className="section">
+      <section className="pt-8 md:pt-10 pb-16 md:pb-24">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="relative rounded-2xl overflow-hidden shadow-lg">
             <img
-              src={buildUrl('bhavia/about_store', { width: 600 })}
-              alt="Bhavia Plastic store"
+              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
+              alt="Bhavia Plastic wholesale and retail shop front in Nashik"
               loading="lazy"
               className="w-full h-auto object-cover"
             />
@@ -33,7 +25,7 @@ export default function About() {
           </div>
           <div className="flex flex-col gap-4 items-start">
             <div className="section-label">Our Story</div>
-            <h2>9 Years of Serving Nashik with Quality Products</h2>
+            <h1 className="text-3xl md:text-4xl font-bold mt-2">9 Years of Serving Nashik with Quality Products</h1>
             <p>
               <strong>Bhavia Plastic</strong> was founded in 2017 with a simple mission: to provide
               Nashik with a one-stop destination for high-quality disposable products at competitive prices.
@@ -122,7 +114,7 @@ export default function About() {
                   </svg>
                 ),
                 t: 'Large Variety', 
-                d: 'Over 500 products across 9 categories, everything under one roof.' 
+                d: 'A wide range of products across 8 categories, everything under one roof.' 
               },
             ].map((h) => (
               <div key={h.t} className="bg-bg-card rounded-xl p-6 border border-border flex flex-col gap-2.5 hover:shadow-md transition-shadow duration-200">
@@ -148,56 +140,77 @@ export default function About() {
               { 
                 img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&h=420&q=80',
                 t: 'Hotels & Restaurants', 
-                d: 'Daily disposable supply for dining operations' 
+                d: 'Disposable tableware & packaging solutions for hospitality businesses.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&h=420&q=80',
                 t: 'Caterers', 
-                d: 'Function and wedding catering supplies at wholesale' 
+                d: 'Reliable disposable products for events, parties & large gatherings.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 4v-1"/><path d="M19 14c0-3.87-3.13-7-7-7S5 10.13 5 14"/><path d="M3 14h18"/><path d="M4 14v2h16v-2"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&h=420&q=80',
                 t: 'Corporate Offices', 
-                d: 'Monthly cleaning and disposable contracts' 
+                d: 'Hygienic & convenient plastic products for daily office needs.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&h=420&q=80',
-                t: 'Hospitals & Clinics', 
-                d: 'Hygienic disposable and cleaning supplies' 
+                t: 'Healthcare & Clinics', 
+                d: 'Safe, hygienic & disposable products for medical use.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&h=420&q=80',
                 t: 'Event Planners', 
-                d: 'Large-scale event disposable packages' 
+                d: 'Complete range of disposables for events of all sizes.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&h=420&q=80',
-                t: 'Retail Customers', 
-                d: 'Individual packs for everyday home use' 
+                t: 'Retail & Supermarkets', 
+                d: 'Packaging & disposable solutions for retail & daily use.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
               },
             ].map((s) => (
               <div 
                 key={s.t} 
-                className="relative overflow-hidden rounded-[24px] h-[320px] shadow-sm group cursor-pointer border border-border flex flex-col justify-end"
+                className="relative overflow-hidden rounded-[24px] flex flex-col bg-[#2B3822] h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                {/* Background Image */}
-                <img 
-                  src={s.img} 
-                  alt={s.t} 
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060e17] via-[#060e17]/35 to-transparent transition-opacity duration-300 group-hover:via-[#060e17]/45" />
-                
-                {/* Content Overlay */}
-                <div className="relative p-6 z-10 flex flex-col gap-1.5 text-left transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
-                  <h4 className="font-heading font-bold text-white text-lg leading-tight md:text-xl">{s.t}</h4>
-                  <p className="text-[0.82rem] text-white/70 leading-relaxed opacity-0 max-h-[0px] overflow-hidden group-hover:opacity-100 group-hover:max-h-[80px] transition-all duration-300">
-                    {s.d}
-                  </p>
+                  {/* Image Section */}
+                  <div className="w-full h-[55%] relative overflow-hidden">
+                    <img 
+                      src={s.img} 
+                      alt={s.t} 
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    
+                    {/* Top Left Icon Badge */}
+                    <div className="absolute top-3 left-3 bg-[#2B3822] text-white w-10 h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
+                      {s.icon}
+                    </div>
+                    
+                    {/* Top Right Pill */}
+                    <div className="absolute top-3 right-3 bg-white text-[#2B3822] text-[0.65rem] font-bold px-3 py-1.5 rounded-full shadow-sm z-10">
+                      Trusted Partner
+                    </div>
+                  </div>
+                  
+                  {/* Text Section */}
+                  <div className="w-full h-[45%] px-5 py-4 flex items-center justify-between">
+                    <div className="flex-1 pr-4 text-left">
+                      <h4 className="font-heading font-bold text-white text-[1rem] leading-tight mb-1.5 truncate">{s.t}</h4>
+                      <p className="text-[0.7rem] text-white/70 leading-snug line-clamp-3">{s.d}</p>
+                    </div>
+                    
+                    {/* Arrow Button */}
+                    <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                  </div>
                 </div>
-              </div>
             ))}
           </div>
         </div>
@@ -207,7 +220,7 @@ export default function About() {
       <section className="section section-dark">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <div className="section-label text-accent">Corporate Supply</div>
+            <div className="section-label">Corporate Supply</div>
             <h2>Corporate &amp; Bulk Order Program</h2>
             <p className="text-white/70 mt-4 mb-6">
               We offer special monthly supply contracts for businesses, institutions, and corporate offices.
@@ -221,8 +234,8 @@ export default function About() {
           </div>
           <div className="flex justify-center">
             <div className="bg-white text-primary rounded-2xl p-8 shadow-xl max-w-sm w-full text-center flex flex-col gap-4 border border-border">
-              <h3 className="text-primary font-heading font-bold text-xl">Get a Corporate Quote</h3>
-              <p className="text-muted text-sm leading-relaxed">Contact us today for a customized pricing plan for your business.</p>
+              <h3 className="!text-primary font-heading font-bold text-xl">Get a Corporate Quote</h3>
+              <p className="!text-muted text-sm leading-relaxed">Contact us today for a customized pricing plan for your business.</p>
               <div className="flex flex-col gap-3">
                 <a href={`tel:${contact.phone}`} className="btn btn-primary btn-lg">Call Now</a>
                 <a href={`https://wa.me/${contact.whatsapp}`} target="_blank" rel="noreferrer" className="btn btn-whatsapp btn-lg">WhatsApp</a>

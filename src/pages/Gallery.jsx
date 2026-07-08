@@ -4,14 +4,14 @@ import { buildUrl } from '../cloudinary';
 // Using Cloudinary-hosted images with category images for gallery
 const galleryImages = [
   { id: 1, cloudinaryId: 'bhavia/hero_background',       title: 'Our Product Range',       tab: 'products' },
-  { id: 2, cloudinaryId: 'bhavia/about_store',           title: 'Our Store',                tab: 'store' },
+  { id: 2, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg',           title: 'Our Store',                tab: 'store' },
   { id: 3, cloudinaryId: 'bhavia/cat_cups_glasses',      title: 'Cups & Glasses Range',    tab: 'products' },
   { id: 4, cloudinaryId: 'bhavia/cat_plates',            title: 'Plates Collection',        tab: 'products' },
   { id: 5, cloudinaryId: 'bhavia/cat_food_packaging',    title: 'Food Packaging',           tab: 'products' },
   { id: 6, cloudinaryId: 'bhavia/cat_cleaning',          title: 'Cleaning Supplies',        tab: 'products' },
   { id: 7, cloudinaryId: 'bhavia/cat_packaging_materials', title: 'Packaging Materials',   tab: 'products' },
   { id: 8, cloudinaryId: 'bhavia/cat_cutlery',           title: 'Cutlery Range',            tab: 'products' },
-  { id: 9, cloudinaryId: 'bhavia/about_store',           title: 'Shop Interior',            tab: 'store' },
+  { id: 9, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg',           title: 'Shop Interior',            tab: 'store' },
 ];
 
 const tabs = ['all', 'store', 'products'];
@@ -65,7 +65,7 @@ export default function Gallery() {
                 onClick={() => setLightbox(img)}
               >
                 <img
-                  src={buildUrl(img.cloudinaryId, { width: i === 0 ? 800 : 400, height: i === 0 ? 500 : 300 })}
+                  src={img.image || buildUrl(img.cloudinaryId, { width: i === 0 ? 800 : 400, height: i === 0 ? 500 : 300 })}
                   alt={img.title}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -90,7 +90,7 @@ export default function Gallery() {
           <div className="relative max-w-4xl w-full flex flex-col items-center gap-3" onClick={(e) => e.stopPropagation()}>
             <button className="absolute -top-10 right-0 bg-white/10 text-white hover:bg-white/25 w-8 h-8 rounded-full flex items-center justify-center text-sm" onClick={() => setLightbox(null)}>✕</button>
             <img
-              src={buildUrl(lightbox.cloudinaryId, { width: 1000 })}
+              src={lightbox.image || buildUrl(lightbox.cloudinaryId, { width: 1000 })}
               alt={lightbox.title}
               className="max-h-[80vh] w-auto object-contain rounded-md"
             />

@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 import { categories } from '../data/categories';
 import { products, searchProducts } from '../data/products';
 import { contact } from '../data/contact';
@@ -10,21 +11,19 @@ export default function Products() {
   const [searchParams] = useSearchParams();
   const initialSearch = searchParams.get('search') || '';
   const [query, setQuery] = useState(initialSearch);
-  const [searchInput, setSearchInput] = useState(initialSearch);
   const [activeCategory, setActiveCategory] = useState('all');
+  const scrollRef = useRef(null);
 
-  document.title = 'Products | Bhavia Plastic Nashik';
-
-  useEffect(() => {
-    setQuery(initialSearch);
-    setSearchInput(initialSearch);
-  }, [initialSearch]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    setQuery(searchInput);
-    setActiveCategory('all');
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
   };
+
+
+    setQuery(initialSearch);
+  }, [initialSearch]);
 
   let displayedProducts = query
     ? searchProducts(query)
@@ -36,64 +35,58 @@ export default function Products() {
 
   return (
     <>
-      {/* Page Header */}
-      <div className="bg-primary text-white py-16 md:py-20 text-center">
-        <div className="container">
-          <div className="section-label">Our Range</div>
-          <h1 className="text-white mt-2">All Products</h1>
-          <p className="text-white/80 mt-2">Browse 500+ products across 9 categories. Wholesale &amp; retail available.</p>
-        </div>
-      </div>
+      <SEO title="Products" description="Explore our extensive range of wholesale disposable cups, plates, food containers, and cleaning supplies in Nashik." />
 
-      <section className="section">
+      <section className="pt-8 md:pt-10 pb-16 md:pb-24">
         <div className="container">
-          {/* Search Bar */}
-          <form className="flex flex-col sm:flex-row gap-4 mb-12" onSubmit={handleSearch}>
-            <div className="flex-1 flex gap-3 items-center bg-bg-card border border-border rounded-xl px-5 py-4 shadow-sm relative">
-              <svg className="w-5 h-5 text-muted/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-              <input
-                type="text"
-                placeholder="Search products, e.g. thermocol plates, garbage bags…"
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                className="flex-1 border-none outline-none font-sans text-base bg-transparent placeholder:text-muted/60"
-              />
-              {searchInput && (
-                <button type="button" className="bg-transparent text-light hover:text-primary text-sm p-1" onClick={() => { setSearchInput(''); setQuery(''); }}>✕</button>
-              )}
-            </div>
-            <button type="submit" className="btn btn-primary sm:px-8 py-4">Search</button>
-          </form>
-
+          <h1 className="sr-only">All Products</h1>
           {!isSearchMode && (
             <>
               {/* Category Filter Tabs */}
-              <div className="flex gap-2 overflow-x-auto pb-3 mb-12 scrollbar-none">
+              <div className="relative flex items-center mb-12 group">
+                {/* Left Scroll Button */}
                 <button 
-                  className={`px-5 py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
-                    activeCategory === 'all' 
-                      ? 'bg-accent text-primary shadow-accent' 
-                      : 'bg-bg-section text-muted hover:bg-border/60'
-                  }`} 
-                  onClick={() => setActiveCategory('all')}
+                  onClick={() => scroll('left')} 
+                  className="absolute left-0 z-10 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-primary transition-opacity -translate-x-4 hover:bg-gray-50 border border-gray-100 hidden md:flex"
+                  aria-label="Scroll left"
                 >
-                  All Products
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                 </button>
-                {categories.map((cat) => (
-                  <button
-                    key={cat.id}
+
+                <div ref={scrollRef} className="flex gap-2 overflow-x-auto pb-2 scrollbar-none w-full scroll-smooth">
+                  <button 
                     className={`px-5 py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
-                      activeCategory === cat.id 
-                        ? 'bg-accent text-primary shadow-accent' 
+                      activeCategory === 'all' 
+                        ? 'bg-accent text-white shadow-accent' 
                         : 'bg-bg-section text-muted hover:bg-border/60'
-                    }`}
-                    onClick={() => setActiveCategory(cat.id)}
+                    }`} 
+                    onClick={() => setActiveCategory('all')}
                   >
-                    {cat.icon} {cat.name}
+                    All Products
                   </button>
-                ))}
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.id}
+                      className={`px-5 py-2.5 rounded-full font-semibold text-[0.88rem] transition-all duration-150 whitespace-nowrap shrink-0 ${
+                        activeCategory === cat.id 
+                          ? 'bg-accent text-white shadow-accent' 
+                          : 'bg-bg-section text-muted hover:bg-border/60'
+                      }`}
+                      onClick={() => setActiveCategory(cat.id)}
+                    >
+                      {cat.icon} {cat.name}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Right Scroll Button */}
+                <button 
+                  onClick={() => scroll('right')} 
+                  className="absolute right-0 z-10 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-primary transition-opacity translate-x-4 hover:bg-gray-50 border border-gray-100 hidden md:flex"
+                  aria-label="Scroll right"
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
               </div>
 
               {/* Category Cards (all view) */}

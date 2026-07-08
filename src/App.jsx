@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import FloatingButtons from './components/FloatingButtons';
@@ -11,9 +11,6 @@ import FAQs from './pages/FAQs';
 import Contact from './pages/Contact';
 
 function App() {
-  const location = useLocation();
-  const isHome = location.pathname === '/';
-
   return (
     <>
       <Navbar />

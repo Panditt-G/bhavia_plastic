@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { buildUrl } from '../cloudinary';
+import SEO from '../components/SEO';
+import { Helmet } from 'react-helmet-async';
 import { categories } from '../data/categories';
-import { brands } from '../data/brands';
 import { faqs } from '../data/faqs';
 import { contact } from '../data/contact';
 import CategoryCard from '../components/CategoryCard';
+import ProductCard from '../components/ProductCard';
 import { useState, useRef } from 'react';
 import { products } from '../data/products';
 
@@ -56,129 +57,6 @@ function HorizontalScrollContainer({ children }) {
   );
 }
 
-const productEmojis = {
-  // Cups & Glasses
-  'plastic-tea-glass': '🍵',
-  'water-glass': '🥛',
-  'paper-glass': '🥤',
-  'plastic-glass': '🍺',
-  'hot-beverage-cups': '☕',
-
-  // Plates
-  'paper-plates': '🍽️',
-  'thermocol-plates': '🍛',
-  'silver-plates': '🍛',
-  'areca-plates': '🍃',
-  'plastic-plates': '🍽️',
-
-  // Food Packaging
-  'thermocol-containers': '📦',
-  'food-containers': '🫙',
-  'plastic-containers': '🫙',
-  'paper-containers': '🥡',
-  'lunch-boxes': '🍱',
-  'silver-containers': '🍱',
-
-  // Paper Products
-  'paper-napkins': '🧻',
-  'kitchen-tissue': '🧻',
-  'butter-paper': '📝',
-  'foil-paper': '💿',
-  'paper-roll': '🧻',
-  'paper-bags': '🛍️',
-
-  // Cutlery
-  'plastic-spoon': '🥄',
-  'fork': '🍴',
-  'knife': '🔪',
-  'stirrers': '🥤',
-  'disposable-bowls': '🥣',
-
-  // Packaging Materials
-  'stretch-film': '🎁',
-  'plastic-rolls': '📜',
-  'tapes': '📼',
-  'wrapping-materials': '🎁',
-  'carry-bags': '🛍️',
-  'packaging-rolls': '📜',
-  'step-ladder': '🪜',
-
-  // Cleaning Supplies
-  'garbage-bags': '🗑️',
-  'cleaning-cloth': '🧼',
-  'kitchen-duster': '🧽',
-  'steel-scrubber': '🧼',
-  'room-freshener': '💨',
-  'phenyl': '🧴',
-  'fire-extinguisher': '🧯',
-
-  // Household
-  'candles': '🕯️',
-  'buckets': '🪣',
-  'storage-containers': '🫙',
-  'plastic-bowls': '🥣',
-  'ropes': '🪢',
-  'mops': '🧹',
-  'ortho-mattress': '🛏️',
-  'mineral-water': '💧',
-  'floor-mat': '🧼',
-  'door-mat': '🚪',
-  'garden-pots': '🪴',
-
-  // Festival
-  'modak-boxes': '🎁',
-  'disposable-serving-items': '🍽️',
-  'festival-packaging': '🎀',
-  'gift-packaging': '🎁',
-};
-
-const getProductMedia = (productId, cloudinaryId) => {
-  const localImages = {
-    // Water bottles
-    'water-independence': '/images/water/water_independence.png',
-    'water-bisleri': '/images/water/water_bisleri.png',
-    'water-kinley': '/images/water/water_kinley.png',
-    'water-clear': '/images/water/water_clear.png',
-    'water-renatures': '/images/water/water_renatures.png',
-    'water-bailley': '/images/water/water_bailley.png',
-
-    // Cleaning chemicals
-    'bathroom-cleaner': '/images/housekeeping/bathroom_cleaner.png',
-    'glass-cleaner': '/images/housekeeping/glass_cleaner.png',
-    'floor-cleaner': '/images/housekeeping/floor_cleaner.png',
-    'toilet-cleaner': '/images/housekeeping/toilet_cleaner.png',
-    'dishwash-liquid': '/images/housekeeping/dishwash_liquid.png',
-    'handwash': '/images/housekeeping/handwash.png',
-    'air-freshener': '/images/housekeeping/air_freshener.png',
-    'naphthalene-balls': '/images/housekeeping/naphthalene_balls.png',
-    'bleaching-powder': '/images/housekeeping/bleaching_powder.png',
-    'room-spray': '/images/housekeeping/room_spray.png',
-    'flushmatic': '/images/housekeeping/flushmatic.png',
-  };
-
-  if (localImages[productId]) {
-    return localImages[productId];
-  }
-
-  if (cloudinaryId) {
-    return buildUrl(cloudinaryId, { width: 200, height: 200, crop: 'fit' });
-  }
-
-  return '/images/placeholder.png';
-};
-
-
-const whyUs = [
-  { icon: '💰', title: 'Wholesale Pricing', desc: 'Best market rates for bulk buyers, businesses, and caterers.' },
-  { icon: '📦', title: 'Bulk Orders', desc: 'Handle large quantity orders for hotels, restaurants, and events.' },
-  { icon: '🛒', title: 'Retail Available', desc: 'Individual packs also available for home customers.' },
-  { icon: '✅', title: 'Quality Products', desc: 'Only trusted brands and quality-checked products in our store.' },
-  { icon: '⚡', title: 'Fast Service', desc: 'Quick order processing and fast delivery within Nashik.' },
-  { icon: '🏪', title: 'Large Range', desc: '500+ products across 9 categories under one roof.' },
-  { icon: '🚚', title: '5 KM Delivery', desc: 'Free delivery for large orders within 5 km radius.' },
-  { icon: '🤝', title: 'Trusted Business', desc: 'Serving Nashik since 2017. 1000+ happy customers.' },
-];
-
 /* Category circles for the quick-nav strip (scrolling marquee style) */
 const sliderItems = [
   { name: 'Mattress', cloudId: 'bhavia/slider_mattress', link: '/products?search=mattress' },
@@ -202,6 +80,29 @@ export default function Home() {
 
   return (
     <>
+      <SEO title="Home" description="Nashik's #1 wholesale supplier of disposable products, packaging materials, and cleaning supplies. Quality products, fast delivery, best rates." />
+      <Helmet>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WholesaleStore",
+              "name": "Bhavia Plastic",
+              "image": "https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/hero_background",
+              "url": "https://bhaviaplastic.com",
+              "telephone": "+918149487449",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Shop No 1, Malpani Empire, Dindori Road, near Morewadi",
+                "addressLocality": "Panchavati, Nashik",
+                "postalCode": "422003",
+                "addressRegion": "MH",
+                "addressCountry": "IN"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
       {/* ══════════════════════════════════════════
           HERO BLOCK — styled after MD Enterprises
       ══════════════════════════════════════════ */}
@@ -266,7 +167,7 @@ export default function Home() {
               </h1>
 
               {/* Accent underline */}
-              <div className="w-[56px] h-[3px] bg-[#E87C2B] rounded-full mb-4 md:mb-6"></div>
+              <div className="w-[56px] h-[3px] bg-accent rounded-full mb-4 md:mb-6"></div>
 
               {/* Subheading */}
               <p className="text-white/85 text-sm md:text-base lg:text-lg mb-6 md:mb-8 font-sans font-medium tracking-wide">
@@ -351,12 +252,12 @@ export default function Home() {
       {/* ── ABOUT SNIPPET ── */}
       <section className="section">
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="relative rounded-[20px] overflow-hidden shadow-lg">
+          <div className="relative rounded-2xl overflow-hidden shadow-lg h-full min-h-[300px]">
             <img
-              src={buildUrl('bhavia/about_store', { width: 600 })}
-              alt="Bhavia Plastic store in Nashik"
-              className="w-full h-auto object-cover"
+              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
+              alt="Bhavia Plastic wholesale store in Nashik"
               loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col gap-4 items-start">
@@ -386,7 +287,6 @@ export default function Home() {
           <div className="section-header center">
             <div className="section-label">Our Products</div>
             <h2>Browse by Category</h2>
-            <p>Explore our complete range of disposable products, packaging materials, and household essentials organized into easy-to-browse categories.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((cat) => (
@@ -405,61 +305,81 @@ export default function Home() {
           <div className="section-header center max-w-xl mx-auto mb-12">
             <div className="section-label">Who We Serve</div>
             <h2 className="mt-2">Wholesale &amp; Retail for Every Need</h2>
-            <p className="text-muted text-[0.88rem] mt-2">We provide reliable supply and customized solutions for businesses, institutions, and homes across Nashik.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
                 img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Hotels & Restaurants',
-                desc: 'Bulk disposable cups, containers, napkins, and cleaning supplies for your daily food operations.' 
+                desc: 'Bulk disposable cups, containers, napkins, and cleaning supplies for your daily food operations.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h2M13 9h2M9 13h2M13 13h2M9 17h2M13 17h2"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Caterers',
-                desc: 'Premium serving plates, bowls, cups, and elegant disposables for events and parties at wholesale rates.' 
+                desc: 'Premium serving plates, bowls, cups, and elegant disposables for events and parties at wholesale rates.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 4v-1"/><path d="M19 14c0-3.87-3.13-7-7-7S5 10.13 5 14"/><path d="M3 14h18"/><path d="M4 14v2h16v-2"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Corporate Offices',
-                desc: 'Monthly contracts for tea cups, water glasses, tissue papers, and essential cleaning supplies.' 
+                desc: 'Monthly contracts for tea cups, water glasses, tissue papers, and essential cleaning supplies.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Hospitals & Clinics',
-                desc: 'Hygiene supplies, garbage bags, toilet rolls, face masks, and sanitization products.' 
+                desc: 'Hygiene supplies, garbage bags, toilet rolls, face masks, and sanitization products.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Event Planners',
-                desc: 'Themed disposables, festival packaging, gift boxes, decorative serving bowls, and custom boxes.' 
+                desc: 'Themed disposables, festival packaging, gift boxes, decorative serving bowls, and custom boxes.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               },
               { 
                 img: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=600&h=420&q=80',
                 title: 'Home Customers',
-                desc: 'Everyday household essentials, kitchen duster, garbage bags, candles, and storage boxes.' 
+                desc: 'Everyday household essentials, kitchen duster, garbage bags, candles, and storage boxes.',
+                icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
               },
             ].map((s) => (
               <div 
                 key={s.title} 
-                className="relative overflow-hidden rounded-[24px] h-[320px] shadow-sm group cursor-pointer border border-border flex flex-col justify-end"
+                className="relative overflow-hidden rounded-[24px] flex flex-col bg-[#2B3822] h-[300px] group cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
               >
-                {/* Background Image */}
-                <img 
-                  src={s.img} 
-                  alt={s.title} 
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060e17] via-[#060e17]/35 to-transparent transition-opacity duration-300 group-hover:via-[#060e17]/45" />
+                {/* Image Section */}
+                <div className="w-full h-[55%] relative overflow-hidden">
+                  <img 
+                    src={s.img} 
+                    alt={s.title} 
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  
+                  {/* Top Left Icon Badge */}
+                  <div className="absolute top-3 left-3 bg-[#2B3822] text-white w-10 h-10 rounded-full flex items-center justify-center border-2 border-white/90 shadow-sm z-10">
+                    {s.icon}
+                  </div>
+                  
+                  {/* Top Right Pill */}
+                  <div className="absolute top-3 right-3 bg-white text-[#2B3822] text-[0.65rem] font-bold px-3 py-1.5 rounded-full shadow-sm z-10">
+                    Trusted Partner
+                  </div>
+                </div>
                 
-                {/* Content Overlay */}
-                <div className="relative p-6 z-10 flex flex-col gap-1.5 text-left transform translate-y-3 group-hover:translate-y-0 transition-transform duration-300">
-                  <h4 className="font-heading font-bold text-white text-lg leading-tight md:text-xl">{s.title}</h4>
-                  <p className="text-[0.82rem] text-white/70 leading-relaxed opacity-0 max-h-[0px] overflow-hidden group-hover:opacity-100 group-hover:max-h-[80px] transition-all duration-300">
-                    {s.desc}
-                  </p>
+                {/* Text Section */}
+                <div className="w-full h-[45%] px-5 py-4 flex items-center justify-between">
+                  <div className="flex-1 pr-4 text-left">
+                    <h4 className="font-heading font-bold text-white text-[1rem] leading-tight mb-1.5 truncate">{s.title}</h4>
+                    <p className="text-[0.7rem] text-white/70 leading-snug line-clamp-3">{s.desc}</p>
+                  </div>
+                  
+                  {/* Arrow Button */}
+                  <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/30">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </div>
                 </div>
               </div>
             ))}
@@ -474,160 +394,10 @@ export default function Home() {
           <div className="section-header center max-w-xl mx-auto mb-4">
             <div className="section-label">Our Range</div>
             <h2>Explore Our Product Categories</h2>
-            <p className="text-muted text-[0.88rem] mt-2">
-              High-quality disposable products, food packaging, drinking water, and housekeeping materials at Nashik's best wholesale rates.
-            </p>
-          </div>
-
-          {/* 1. Packaged Drinking Water Supply */}
-          <div>
-            <h3 className="font-heading font-bold text-primary text-xl mb-5">
-              Packaged Drinking Water
-            </h3>
-            <HorizontalScrollContainer>
-              {[
-                { name: 'Independence', img: '/images/water/water_independence.png' },
-                { name: 'Bisleri',       img: '/images/water/water_bisleri.png' },
-                { name: 'Kinley',        img: '/images/water/water_kinley.png' },
-                { name: 'Clear',         img: '/images/water/water_clear.png' },
-                { name: 'ReNatures',     img: '/images/water/water_renatures.png' },
-                { name: 'Bailley',       img: '/images/water/water_bailley.png' },
-              ].map((w) => (
-                <div
-                  key={w.name}
-                  className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
-                >
-                  <img
-                    src={w.img}
-                    alt={w.name}
-                    className="h-[90px] w-auto object-contain transition-transform duration-300 ease-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="relative w-full h-[42px] flex items-center justify-center overflow-hidden">
-                    <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
-                      {w.name}
-                    </span>
-                    <a
-                      href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${w.name}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center whitespace-nowrap"
-                    >
-                      Shop Now
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </HorizontalScrollContainer>
-          </div>
-
-          {/* 2. House Keeping Chemicals */}
-          <div>
-            <h3 className="font-heading font-bold text-primary text-xl mb-5">
-              House Keeping Chemicals
-            </h3>
-            <HorizontalScrollContainer>
-              {[
-                { name: 'Bathroom\nCleaners',   img: '/images/housekeeping/bathroom_cleaner.png' },
-                { name: 'Glass\nCleaners',       img: '/images/housekeeping/glass_cleaner.png' },
-                { name: 'Floor\nCleaners',       img: '/images/housekeeping/floor_cleaner.png' },
-                { name: 'Toilet\nCleaners',      img: '/images/housekeeping/toilet_cleaner.png' },
-                { name: 'Dishwashing\nLiquids',  img: '/images/housekeeping/dishwash_liquid.png' },
-                { name: 'Hand\nWashing Liquids', img: '/images/housekeeping/handwash.png' },
-                { name: 'Air\nFresheners',       img: '/images/housekeeping/air_freshener.png' },
-                { name: 'Naphthalene\nBalls',    img: '/images/housekeeping/naphthalene_balls.png' },
-                { name: 'Bleaching\nPowder',     img: '/images/housekeeping/bleaching_powder.png' },
-                { name: 'Room\nSprays',          img: '/images/housekeeping/room_spray.png' },
-                { name: 'Flushmatic',            img: '/images/housekeeping/flushmatic.png' },
-              ].map((item) => (
-                <div
-                  key={item.name}
-                  className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
-                >
-                  <img
-                    src={item.img}
-                    alt={item.name.replace('\n', ' ')}
-                    className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
-                    <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
-                      {item.name}
-                    </span>
-                    <a
-                      href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center whitespace-nowrap"
-                    >
-                      Shop Now
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </HorizontalScrollContainer>
-          </div>
-
-          {/* 3. House Keeping Materials */}
-          <div>
-            <h3 className="font-heading font-bold text-primary text-xl mb-5">
-              House Keeping Materials
-            </h3>
-            <HorizontalScrollContainer>
-              {[
-                { name: 'Broom\n& Dustpan',   cloudId: 'bhavia/cat_cleaning', id: 'broom-dustpan' },
-                { name: 'Buckets',             cloudId: 'bhavia/cat_household', id: 'buckets' },
-                { name: 'Mops',                cloudId: 'bhavia/cat_household', id: 'mops' },
-                { name: 'Microfiber\nCloths',  cloudId: 'bhavia/cat_cleaning', id: 'cleaning-cloth' },
-                { name: 'Scrubbers',           cloudId: 'bhavia/cat_cleaning', id: 'steel-scrubber' },
-                { name: 'Toilet\nBrush',       cloudId: 'bhavia/cat_cleaning', id: 'toilet-brush' },
-                { name: 'Garbage\nBags',       cloudId: 'bhavia/cat_cleaning', id: 'garbage-bags' },
-                { name: 'Cleaning\nGloves',    cloudId: 'bhavia/cat_cleaning', id: 'cleaning-gloves' },
-                { name: 'Wiper /\nSqueegee',   cloudId: 'bhavia/cat_cleaning', id: 'wiper-squeegee' },
-                { name: 'Duster',              cloudId: 'bhavia/cat_cleaning', id: 'duster' },
-                { name: 'Dustbin',             cloudId: 'bhavia/cat_household', id: 'dustbin' },
-                { name: 'Cleaning\nBrushes',   cloudId: 'bhavia/cat_cleaning', id: 'cleaning-brushes' },
-              ].map((item) => {
-                const cloudUrl = buildUrl(`bhavia/products/${item.id}`, { width: 160, height: 160, crop: 'fit' });
-                const fallbackUrl = buildUrl(item.cloudId, { width: 160, height: 160, crop: 'fit' });
-                return (
-                  <div
-                    key={item.name}
-                    className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
-                  >
-                    <img
-                      src={cloudUrl}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = fallbackUrl;
-                      }}
-                      alt={item.name.replace('\n', ' ')}
-                      className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                    <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
-                      <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.75rem] text-primary text-center leading-tight whitespace-pre-line">
-                        {item.name}
-                      </span>
-                      <a
-                        href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${item.name.replace('\n', ' ')}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center whitespace-nowrap"
-                      >
-                        Shop Now
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </HorizontalScrollContainer>
           </div>
 
           {/* 4. Dynamic Categories */}
-          {categories
-            .filter((cat) => cat.id !== 'cleaning-supplies' && cat.id !== 'household')
-            .map((cat) => {
+          {categories.map((cat) => {
               const catProducts = products.filter((p) => p.category === cat.id);
               if (catProducts.length === 0) return null;
 
@@ -637,40 +407,11 @@ export default function Home() {
                     {cat.name}
                   </h3>
                   <HorizontalScrollContainer>
-                    {catProducts.map((p) => {
-                      const cloudUrl = buildUrl(p.cloudinaryId, { width: 200, height: 200, crop: 'fit' });
-                      const fallbackUrl = buildUrl(`bhavia/cat_${p.category}`, { width: 200, height: 200, crop: 'fit' });
-                      return (
-                        <div
-                          key={p.id}
-                          className="group shrink-0 snap-start bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1.5 transition-all duration-300 ease-out flex flex-col items-center gap-2 p-4 w-[120px] cursor-pointer relative overflow-hidden"
-                        >
-                          <img
-                            src={cloudUrl}
-                            onError={(e) => {
-                              e.target.onerror = null;
-                              e.target.src = fallbackUrl;
-                            }}
-                            alt={p.name}
-                            className="h-[90px] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                            loading="lazy"
-                          />
-                          <div className="relative w-full h-[32px] flex items-center justify-center overflow-hidden">
-                            <span className="absolute transition-all duration-300 transform group-hover:translate-y-10 group-hover:opacity-0 font-semibold text-[0.72rem] text-primary text-center leading-tight">
-                              {p.name}
-                            </span>
-                            <a
-                              href={`https://wa.me/${contact.whatsapp}?text=I%20want%20to%20order%20${p.name}`}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="absolute transition-all duration-300 transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 bg-[#E87C2B] hover:bg-[#C86518] text-white text-[0.68rem] font-bold py-1.5 px-3 rounded-full shadow-sm text-center whitespace-nowrap"
-                            >
-                              Shop Now
-                            </a>
-                          </div>
-                        </div>
-                      );
-                    })}
+                    {catProducts.map((p) => (
+                      <div key={p.id} className="w-[260px] shrink-0 snap-start">
+                        <ProductCard product={p} />
+                      </div>
+                    ))}
                   </HorizontalScrollContainer>
                 </div>
               );
@@ -679,27 +420,6 @@ export default function Home() {
       </section>
 
 
-      {/* ── BRANDS ── */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header center">
-            <div className="section-label">Our Partners</div>
-            <h2>Trusted Brand Partners</h2>
-            <p>We are authorized distributors and wholesale suppliers for leading brands.</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            {brands.map((brand) => (
-              <div key={brand.id} className="bg-bg-card rounded-xl p-5 border border-border text-center flex flex-col items-center gap-2 hover:shadow-md transition-shadow duration-200">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center font-heading font-extrabold text-white text-[1.1rem] shadow-sm mb-1" style={{ background: brand.color }}>
-                  {brand.initial}
-                </div>
-                <div className="font-semibold text-[0.88rem] text-primary leading-tight">{brand.name}</div>
-                <div className="text-[0.7rem] text-muted tracking-wider uppercase font-medium">{brand.role}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ── FAQ SNIPPET ── */}
       <section className="section section-alt">

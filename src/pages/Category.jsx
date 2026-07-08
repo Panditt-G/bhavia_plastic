@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { getCategoryById } from '../data/categories';
+import SEO from '../components/SEO';
 import { getProductsByCategory } from '../data/products';
 import { buildUrl } from '../cloudinary';
 import { contact } from '../data/contact';
@@ -14,10 +15,9 @@ export default function Category() {
   const categoryProducts = getProductsByCategory(categoryId);
   const waMsg = encodeURIComponent(`Hi Bhavia Plastic, I need information about your ${category.name} products. Please share details and pricing.`);
 
-  document.title = `${category.name} | Bhavia Plastic Nashik`;
-
   return (
     <>
+      <SEO title={category.name} description={category.description} />
       {/* Category Banner */}
       <div className="relative text-white py-20 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">

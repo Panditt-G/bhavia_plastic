@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { categories } from '../data/categories';
 import { contact } from '../data/contact';
 
 export default function Navbar() {
@@ -84,28 +83,10 @@ export default function Navbar() {
             <li>
               <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
             </li>
-            <li className="relative group py-2">
-              <NavLink to="/products" className={({ isActive }) =>
-                `text-gray-600 hover:text-[#0d1b2a] font-semibold text-[0.88rem] xl:text-[0.92rem] transition-colors whitespace-nowrap flex items-center gap-1 pb-1 ${
-                  isActive ? 'text-[#0d1b2a] border-b-2 border-[#0d1b2a]' : 'border-b-2 border-transparent'
-                }`
-              }>
-                Products <span className="text-[0.7rem] ml-[2px] transition-transform duration-150 group-hover:rotate-180">▼</span>
-              </NavLink>
-              <div className="absolute top-[calc(100%-4px)] left-1/2 -translate-x-1/2 bg-white rounded-xl shadow-xl w-[540px] p-2 opacity-0 invisible scale-95 origin-top transition-all duration-200 group-hover:opacity-100 group-hover:visible group-hover:scale-100 grid grid-cols-2 gap-[2px] z-[1010] border border-gray-100">
-                {categories.map((cat) => (
-                  <Link key={cat.id} to={`/products/${cat.id}`} className="flex items-center gap-2 px-4 py-[10px] rounded-lg text-gray-700 text-[0.83rem] font-medium hover:bg-bg-section hover:text-[#0d1b2a] transition-all duration-150 whitespace-nowrap">
-                    {cat.name}
-                  </Link>
-                ))}
-              </div>
-            </li>
             <li>
               <NavLink to="/products" className={navLinkClass}>Categories</NavLink>
             </li>
-            <li>
-              <NavLink to="/gallery" className={navLinkClass}>Gallery</NavLink>
-            </li>
+
             <li>
               <NavLink to="/contact" className={navLinkClass}>Contact Us</NavLink>
             </li>
@@ -182,25 +163,7 @@ export default function Navbar() {
               `block px-4 py-3 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'bg-slate-50 text-[#0d1b2a] font-bold' : ''}`
             }>About Us</NavLink>
           </li>
-          <li>
-            <NavLink to="/products" onClick={closeMenu} className={({ isActive }) =>
-              `block px-4 py-3 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'bg-slate-50 text-[#0d1b2a] font-bold' : ''}`
-            }>Products</NavLink>
-          </li>
-          {categories.map((cat) => (
-            <li key={cat.id} className="pl-6">
-              <NavLink to={`/products/${cat.id}`} onClick={closeMenu} className={({ isActive }) =>
-                `block px-4 py-2 text-gray-500 text-sm font-medium rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'text-[#0d1b2a] font-semibold' : ''}`
-              }>
-                {cat.name}
-              </NavLink>
-            </li>
-          ))}
-          <li>
-            <NavLink to="/gallery" onClick={closeMenu} className={({ isActive }) =>
-              `block px-4 py-3 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'bg-slate-50 text-[#0d1b2a] font-bold' : ''}`
-            }>Gallery</NavLink>
-          </li>
+
           <li>
             <NavLink to="/faqs" onClick={closeMenu} className={({ isActive }) =>
               `block px-4 py-3 text-gray-700 text-base font-semibold rounded-lg hover:bg-gray-50 hover:text-[#0d1b2a] ${isActive ? 'bg-slate-50 text-[#0d1b2a] font-bold' : ''}`

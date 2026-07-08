@@ -13,9 +13,9 @@ export default {
           dark: '#060e17',      // Almost black navy
         },
         accent: {
-          DEFAULT: '#E87C2B',   // Warm orange – pops well on navy
-          dark: '#C86518',
-          light: '#F9DBBE',
+          DEFAULT: '#3A432E',   // Olive green
+          dark: '#2B3822',      // Dark olive
+          light: '#B9C6A7',     // Light sage
         },
         whatsapp: {
           DEFAULT: '#25D366',
@@ -39,7 +39,7 @@ export default {
         md: '0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)',
         lg: '0 10px 40px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.08)',
         xl: '0 20px 60px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.10)',
-        accent: '0 4px 20px rgba(232,124,43,0.35)',
+        accent: '0 4px 20px rgba(43,56,34,0.35)',
         primary: '0 4px 20px rgba(13,27,42,0.30)',
       },
       keyframes: {
