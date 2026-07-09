@@ -4,14 +4,14 @@ import { buildUrl } from '../cloudinary';
 // Using Cloudinary-hosted images with category images for gallery
 const galleryImages = [
   { id: 1, cloudinaryId: 'bhavia/hero_background',       title: 'Our Product Range',       tab: 'products' },
-  { id: 2, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg',           title: 'Our Store',                tab: 'store' },
+  { id: 2, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-v2.jpg',           title: 'Our Store',                tab: 'store' },
   { id: 3, cloudinaryId: 'bhavia/cat_cups_glasses',      title: 'Cups & Glasses Range',    tab: 'products' },
   { id: 4, cloudinaryId: 'bhavia/cat_plates',            title: 'Plates Collection',        tab: 'products' },
   { id: 5, cloudinaryId: 'bhavia/cat_food_packaging',    title: 'Food Packaging',           tab: 'products' },
   { id: 6, cloudinaryId: 'bhavia/cat_cleaning',          title: 'Cleaning Supplies',        tab: 'products' },
   { id: 7, cloudinaryId: 'bhavia/cat_packaging_materials', title: 'Packaging Materials',   tab: 'products' },
   { id: 8, cloudinaryId: 'bhavia/cat_cutlery',           title: 'Cutlery Range',            tab: 'products' },
-  { id: 9, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg',           title: 'Shop Interior',            tab: 'store' },
+  { id: 9, image: 'https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-v2.jpg',           title: 'Shop Interior',            tab: 'store' },
 ];
 
 const tabs = ['all', 'store', 'products'];

@@ -13,7 +13,7 @@ export default function About() {
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
             <img
-              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
+              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-v2.jpg"
               alt="Bhavia Plastic wholesale and retail shop front in Nashik"
               loading="lazy"
               className="w-full h-auto object-cover"

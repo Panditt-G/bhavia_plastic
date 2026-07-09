@@ -255,7 +255,7 @@ export default function Home() {
         <div className="container grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
           <div className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg h-full min-h-[200px] sm:min-h-[300px]">
             <img
-              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-nashik.jpg"
+              src="https://res.cloudinary.com/dwzz3cxt1/image/upload/f_auto,q_auto/bhavia/images/bhavia-plastic-wholesale-shop-v2.jpg"
               alt="Bhavia Plastic wholesale store in Nashik"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
